@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4FA13FC718EEF90D009A660B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA13FC618EEF90D009A660B /* Foundation.framework */; };
+		4FA13FC918EEF90D009A660B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA13FC818EEF90D009A660B /* CoreGraphics.framework */; };
+		4FA13FCB18EEF90D009A660B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA13FCA18EEF90D009A660B /* UIKit.framework */; };
+		4FA13FD118EEF90D009A660B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FA13FCF18EEF90D009A660B /* InfoPlist.strings */; };
+		4FA13FD318EEF90D009A660B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA13FD218EEF90D009A660B /* main.m */; };
+		4FA13FD718EEF90D009A660B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA13FD618EEF90D009A660B /* AppDelegate.m */; };
+		4FA13FD918EEF90D009A660B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FA13FD818EEF90D009A660B /* Images.xcassets */; };
+		4FA13FE018EEF90E009A660B /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA13FDF18EEF90E009A660B /* XCTest.framework */; };
+		4FA13FE118EEF90E009A660B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA13FC618EEF90D009A660B /* Foundation.framework */; };
+		4FA13FE218EEF90E009A660B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA13FCA18EEF90D009A660B /* UIKit.framework */; };
+		4FA13FEA18EEF90E009A660B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FA13FE818EEF90E009A660B /* InfoPlist.strings */; };
+		4FA13FEC18EEF90E009A660B /* CavemenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA13FEB18EEF90E009A660B /* CavemenTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4FA13FE318EEF90E009A660B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FA13FBB18EEF90D009A660B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4FA13FC218EEF90D009A660B;
+			remoteInfo = Cavemen;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4FA13FC318EEF90D009A660B /* Cavemen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cavemen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FA13FC618EEF90D009A660B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4FA13FC818EEF90D009A660B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		4FA13FCA18EEF90D009A660B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4FA13FCE18EEF90D009A660B /* Cavemen-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Cavemen-Info.plist"; sourceTree = "<group>"; };
+		4FA13FD018EEF90D009A660B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4FA13FD218EEF90D009A660B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4FA13FD418EEF90D009A660B /* Cavemen-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Cavemen-Prefix.pch"; sourceTree = "<group>"; };
+		4FA13FD518EEF90D009A660B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4FA13FD618EEF90D009A660B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4FA13FD818EEF90D009A660B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4FA13FDE18EEF90E009A660B /* CavemenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CavemenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4FA13FDF18EEF90E009A660B /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		4FA13FE718EEF90E009A660B /* CavemenTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CavemenTests-Info.plist"; sourceTree = "<group>"; };
+		4FA13FE918EEF90E009A660B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4FA13FEB18EEF90E009A660B /* CavemenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CavemenTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4FA13FC018EEF90D009A660B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FA13FC918EEF90D009A660B /* CoreGraphics.framework in Frameworks */,
+				4FA13FCB18EEF90D009A660B /* UIKit.framework in Frameworks */,
+				4FA13FC718EEF90D009A660B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FA13FDB18EEF90E009A660B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FA13FE018EEF90E009A660B /* XCTest.framework in Frameworks */,
+				4FA13FE218EEF90E009A660B /* UIKit.framework in Frameworks */,
+				4FA13FE118EEF90E009A660B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4FA13FBA18EEF90D009A660B = {
+			isa = PBXGroup;
+			children = (
+				4FA13FCC18EEF90D009A660B /* Cavemen */,
+				4FA13FE518EEF90E009A660B /* CavemenTests */,
+				4FA13FC518EEF90D009A660B /* Frameworks */,
+				4FA13FC418EEF90D009A660B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4FA13FC418EEF90D009A660B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4FA13FC318EEF90D009A660B /* Cavemen.app */,
+				4FA13FDE18EEF90E009A660B /* CavemenTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4FA13FC518EEF90D009A660B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4FA13FC618EEF90D009A660B /* Foundation.framework */,
+				4FA13FC818EEF90D009A660B /* CoreGraphics.framework */,
+				4FA13FCA18EEF90D009A660B /* UIKit.framework */,
+				4FA13FDF18EEF90E009A660B /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4FA13FCC18EEF90D009A660B /* Cavemen */ = {
+			isa = PBXGroup;
+			children = (
+				4FA13FD518EEF90D009A660B /* AppDelegate.h */,
+				4FA13FD618EEF90D009A660B /* AppDelegate.m */,
+				4FA13FD818EEF90D009A660B /* Images.xcassets */,
+				4FA13FCD18EEF90D009A660B /* Supporting Files */,
+			);
+			path = Cavemen;
+			sourceTree = "<group>";
+		};
+		4FA13FCD18EEF90D009A660B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4FA13FCE18EEF90D009A660B /* Cavemen-Info.plist */,
+				4FA13FCF18EEF90D009A660B /* InfoPlist.strings */,
+				4FA13FD218EEF90D009A660B /* main.m */,
+				4FA13FD418EEF90D009A660B /* Cavemen-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4FA13FE518EEF90E009A660B /* CavemenTests */ = {
+			isa = PBXGroup;
+			children = (
+				4FA13FEB18EEF90E009A660B /* CavemenTests.m */,
+				4FA13FE618EEF90E009A660B /* Supporting Files */,
+			);
+			path = CavemenTests;
+			sourceTree = "<group>";
+		};
+		4FA13FE618EEF90E009A660B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4FA13FE718EEF90E009A660B /* CavemenTests-Info.plist */,
+				4FA13FE818EEF90E009A660B /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4FA13FC218EEF90D009A660B /* Cavemen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FA13FEF18EEF90E009A660B /* Build configuration list for PBXNativeTarget "Cavemen" */;
+			buildPhases = (
+				4FA13FBF18EEF90D009A660B /* Sources */,
+				4FA13FC018EEF90D009A660B /* Frameworks */,
+				4FA13FC118EEF90D009A660B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cavemen;
+			productName = Cavemen;
+			productReference = 4FA13FC318EEF90D009A660B /* Cavemen.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4FA13FDD18EEF90E009A660B /* CavemenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FA13FF218EEF90E009A660B /* Build configuration list for PBXNativeTarget "CavemenTests" */;
+			buildPhases = (
+				4FA13FDA18EEF90E009A660B /* Sources */,
+				4FA13FDB18EEF90E009A660B /* Frameworks */,
+				4FA13FDC18EEF90E009A660B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4FA13FE418EEF90E009A660B /* PBXTargetDependency */,
+			);
+			name = CavemenTests;
+			productName = CavemenTests;
+			productReference = 4FA13FDE18EEF90E009A660B /* CavemenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4FA13FBB18EEF90D009A660B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Endava;
+				TargetAttributes = {
+					4FA13FDD18EEF90E009A660B = {
+						TestTargetID = 4FA13FC218EEF90D009A660B;
+					};
+				};
+			};
+			buildConfigurationList = 4FA13FBE18EEF90D009A660B /* Build configuration list for PBXProject "Cavemen" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4FA13FBA18EEF90D009A660B;
+			productRefGroup = 4FA13FC418EEF90D009A660B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4FA13FC218EEF90D009A660B /* Cavemen */,
+				4FA13FDD18EEF90E009A660B /* CavemenTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4FA13FC118EEF90D009A660B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FA13FD118EEF90D009A660B /* InfoPlist.strings in Resources */,
+				4FA13FD918EEF90D009A660B /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FA13FDC18EEF90E009A660B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FA13FEA18EEF90E009A660B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4FA13FBF18EEF90D009A660B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FA13FD718EEF90D009A660B /* AppDelegate.m in Sources */,
+				4FA13FD318EEF90D009A660B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FA13FDA18EEF90E009A660B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4FA13FEC18EEF90E009A660B /* CavemenTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4FA13FE418EEF90E009A660B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4FA13FC218EEF90D009A660B /* Cavemen */;
+			targetProxy = 4FA13FE318EEF90E009A660B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4FA13FCF18EEF90D009A660B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FA13FD018EEF90D009A660B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		4FA13FE818EEF90E009A660B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4FA13FE918EEF90E009A660B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4FA13FED18EEF90E009A660B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4FA13FEE18EEF90E009A660B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4FA13FF018EEF90E009A660B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cavemen/Cavemen-Prefix.pch";
+				INFOPLIST_FILE = "Cavemen/Cavemen-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		4FA13FF118EEF90E009A660B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cavemen/Cavemen-Prefix.pch";
+				INFOPLIST_FILE = "Cavemen/Cavemen-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		4FA13FF318EEF90E009A660B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cavemen.app/Cavemen";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cavemen/Cavemen-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CavemenTests/CavemenTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		4FA13FF418EEF90E009A660B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Cavemen.app/Cavemen";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Cavemen/Cavemen-Prefix.pch";
+				INFOPLIST_FILE = "CavemenTests/CavemenTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4FA13FBE18EEF90D009A660B /* Build configuration list for PBXProject "Cavemen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FA13FED18EEF90E009A660B /* Debug */,
+				4FA13FEE18EEF90E009A660B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FA13FEF18EEF90E009A660B /* Build configuration list for PBXNativeTarget "Cavemen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FA13FF018EEF90E009A660B /* Debug */,
+				4FA13FF118EEF90E009A660B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4FA13FF218EEF90E009A660B /* Build configuration list for PBXNativeTarget "CavemenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4FA13FF318EEF90E009A660B /* Debug */,
+				4FA13FF418EEF90E009A660B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4FA13FBB18EEF90D009A660B /* Project object */;
+}
