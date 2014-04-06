@@ -7,14 +7,27 @@
 //
 
 #import "AppDelegate.h"
+#import <MMDrawerController/MMDrawerController.h>
+#import "LeftMenuVC.h"
+#import "MainVC.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+
+    LeftMenuVC *leftMenu = [[LeftMenuVC alloc] init];
+    
+    MainVC *mainVC                    = [[MainVC alloc] init];
+    UINavigationController *centerNav = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    
+    MMDrawerController *drawer = [[MMDrawerController alloc] initWithCenterViewController:centerNav leftDrawerViewController:leftMenu];
+    [drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [drawer setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    
+    self.window.rootViewController = drawer;
+    self.window.backgroundColor    = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
 }
