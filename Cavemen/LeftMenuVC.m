@@ -7,6 +7,9 @@
 //
 
 #import "LeftMenuVC.h"
+#import "LeftMenuDataModel.h"
+#import "LeftMenuItem.h"
+#import "UIViewController+MMDrawerController.h"
 
 @interface LeftMenuVC ()
 
@@ -14,25 +17,39 @@
 
 @implementation LeftMenuVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - Table View Data Source
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    static NSString *cellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+    
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    LeftMenuItem *item = [LeftMenuDataModel leftMenuItems][indexPath.row];
+    
+    cell.textLabel.text = item.title;
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    return [LeftMenuDataModel leftMenuItems].count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    LeftMenuItem *item = [LeftMenuDataModel leftMenuItems][indexPath.row];
+    [((UINavigationController *)self.mm_drawerController.centerViewController) setViewControllers:@[[[item.vcClass alloc] init]] animated:YES];
 }
 
 @end

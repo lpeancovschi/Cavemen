@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B18E5C018F47E5300367184 /* DiscoverVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E5BE18F47E5300367184 /* DiscoverVC.m */; };
+		3B18E5C118F47E5300367184 /* DiscoverVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B18E5BF18F47E5300367184 /* DiscoverVC.xib */; };
+		3B18E5C318F47EE000367184 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B18E5C218F47EE000367184 /* CoreBluetooth.framework */; };
+		3B18E5C718F4851E00367184 /* LeftMenuDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E5C618F4851E00367184 /* LeftMenuDataModel.m */; };
+		3B18E5CA18F4853300367184 /* LeftMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E5C918F4853300367184 /* LeftMenuItem.m */; };
 		3B6A693918F1CB8F00EBE271 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6A693818F1CB8F00EBE271 /* BaseVC.m */; };
 		3B6A693E18F1CBD800EBE271 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6A693C18F1CBD800EBE271 /* MainVC.m */; };
 		3B6A693F18F1CBD800EBE271 /* MainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6A693D18F1CBD800EBE271 /* MainVC.xib */; };
@@ -38,6 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B18E5BD18F47E5300367184 /* DiscoverVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverVC.h; sourceTree = "<group>"; };
+		3B18E5BE18F47E5300367184 /* DiscoverVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverVC.m; sourceTree = "<group>"; };
+		3B18E5BF18F47E5300367184 /* DiscoverVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DiscoverVC.xib; sourceTree = "<group>"; };
+		3B18E5C218F47EE000367184 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		3B18E5C518F4851E00367184 /* LeftMenuDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuDataModel.h; sourceTree = "<group>"; };
+		3B18E5C618F4851E00367184 /* LeftMenuDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuDataModel.m; sourceTree = "<group>"; };
+		3B18E5C818F4853300367184 /* LeftMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuItem.h; sourceTree = "<group>"; };
+		3B18E5C918F4853300367184 /* LeftMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuItem.m; sourceTree = "<group>"; };
 		3B6A693718F1CB8F00EBE271 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
 		3B6A693818F1CB8F00EBE271 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
 		3B6A693B18F1CBD800EBE271 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
@@ -71,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B18E5C318F47EE000367184 /* CoreBluetooth.framework in Frameworks */,
 				4FA13FC918EEF90D009A660B /* CoreGraphics.framework in Frameworks */,
 				4FA13FCB18EEF90D009A660B /* UIKit.framework in Frameworks */,
 				4FA13FC718EEF90D009A660B /* Foundation.framework in Frameworks */,
@@ -91,9 +105,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B18E5BC18F47E0300367184 /* Discover VC */ = {
+			isa = PBXGroup;
+			children = (
+				3B18E5BD18F47E5300367184 /* DiscoverVC.h */,
+				3B18E5BE18F47E5300367184 /* DiscoverVC.m */,
+				3B18E5BF18F47E5300367184 /* DiscoverVC.xib */,
+			);
+			name = "Discover VC";
+			sourceTree = "<group>";
+		};
+		3B18E5C418F4850000367184 /* Data Model */ = {
+			isa = PBXGroup;
+			children = (
+				3B18E5CB18F4853700367184 /* Left Menu */,
+			);
+			name = "Data Model";
+			sourceTree = "<group>";
+		};
+		3B18E5CB18F4853700367184 /* Left Menu */ = {
+			isa = PBXGroup;
+			children = (
+				3B18E5C518F4851E00367184 /* LeftMenuDataModel.h */,
+				3B18E5C618F4851E00367184 /* LeftMenuDataModel.m */,
+				3B18E5C818F4853300367184 /* LeftMenuItem.h */,
+				3B18E5C918F4853300367184 /* LeftMenuItem.m */,
+			);
+			name = "Left Menu";
+			sourceTree = "<group>";
+		};
 		3B6A693518F1CB6900EBE271 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				3B18E5BC18F47E0300367184 /* Discover VC */,
 				3B6A694018F1CBDE00EBE271 /* LeftMenuVC */,
 				3B6A693A18F1CBC600EBE271 /* Main VC */,
 				3B6A693618F1CB7300EBE271 /* Base VC */,
@@ -153,6 +197,7 @@
 		4FA13FC518EEF90D009A660B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3B18E5C218F47EE000367184 /* CoreBluetooth.framework */,
 				4FA13FC618EEF90D009A660B /* Foundation.framework */,
 				4FA13FC818EEF90D009A660B /* CoreGraphics.framework */,
 				4FA13FCA18EEF90D009A660B /* UIKit.framework */,
@@ -165,6 +210,7 @@
 		4FA13FCC18EEF90D009A660B /* Cavemen */ = {
 			isa = PBXGroup;
 			children = (
+				3B18E5C418F4850000367184 /* Data Model */,
 				3B6A693518F1CB6900EBE271 /* View Controllers */,
 				4FA13FD518EEF90D009A660B /* AppDelegate.h */,
 				4FA13FD618EEF90D009A660B /* AppDelegate.m */,
@@ -281,6 +327,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B6A694818F1CC0A00EBE271 /* LeftMenuVC.xib in Resources */,
+				3B18E5C118F47E5300367184 /* DiscoverVC.xib in Resources */,
 				3B6A693F18F1CBD800EBE271 /* MainVC.xib in Resources */,
 				4FA13FD118EEF90D009A660B /* InfoPlist.strings in Resources */,
 				4FA13FD918EEF90D009A660B /* Images.xcassets in Resources */,
@@ -335,11 +382,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B18E5CA18F4853300367184 /* LeftMenuItem.m in Sources */,
 				3B6A693918F1CB8F00EBE271 /* BaseVC.m in Sources */,
 				3B6A693E18F1CBD800EBE271 /* MainVC.m in Sources */,
 				4FA13FD718EEF90D009A660B /* AppDelegate.m in Sources */,
 				4FA13FD318EEF90D009A660B /* main.m in Sources */,
+				3B18E5C718F4851E00367184 /* LeftMenuDataModel.m in Sources */,
 				3B6A694718F1CC0A00EBE271 /* LeftMenuVC.m in Sources */,
+				3B18E5C018F47E5300367184 /* DiscoverVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
