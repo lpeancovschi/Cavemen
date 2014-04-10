@@ -13,6 +13,8 @@
 
 @interface LeftMenuVC ()
 
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+
 @end
 
 @implementation LeftMenuVC
@@ -20,6 +22,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, [UIApplication sharedApplication].statusBarFrame.size.height)];
+    self.tableView.tableHeaderView = headerView;
 }
 
 #pragma mark - Table View Data Source
@@ -50,6 +55,7 @@
 
     LeftMenuItem *item = [LeftMenuDataModel leftMenuItems][indexPath.row];
     [((UINavigationController *)self.mm_drawerController.centerViewController) setViewControllers:@[[[item.vcClass alloc] init]] animated:YES];
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
 @end

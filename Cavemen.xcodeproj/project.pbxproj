@@ -30,6 +30,7 @@
 		4FA13FE218EEF90E009A660B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA13FCA18EEF90D009A660B /* UIKit.framework */; };
 		4FA13FEA18EEF90E009A660B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FA13FE818EEF90E009A660B /* InfoPlist.strings */; };
 		4FA13FEC18EEF90E009A660B /* CavemenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA13FEB18EEF90E009A660B /* CavemenTests.m */; };
+		4FDB480C18F6A21600604AC5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB480B18F6A21600604AC5 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		4FA13FE718EEF90E009A660B /* CavemenTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CavemenTests-Info.plist"; sourceTree = "<group>"; };
 		4FA13FE918EEF90E009A660B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4FA13FEB18EEF90E009A660B /* CavemenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CavemenTests.m; sourceTree = "<group>"; };
+		4FDB480B18F6A21600604AC5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		82A7006D697446A298593137 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D097E7D1840C4578BE447906 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -84,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FDB480C18F6A21600604AC5 /* CoreLocation.framework in Frameworks */,
 				3B18E5C318F47EE000367184 /* CoreBluetooth.framework in Frameworks */,
 				4FA13FC918EEF90D009A660B /* CoreGraphics.framework in Frameworks */,
 				4FA13FCB18EEF90D009A660B /* UIKit.framework in Frameworks */,
@@ -197,6 +200,7 @@
 		4FA13FC518EEF90D009A660B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4FDB480B18F6A21600604AC5 /* CoreLocation.framework */,
 				3B18E5C218F47EE000367184 /* CoreBluetooth.framework */,
 				4FA13FC618EEF90D009A660B /* Foundation.framework */,
 				4FA13FC818EEF90D009A660B /* CoreGraphics.framework */,
