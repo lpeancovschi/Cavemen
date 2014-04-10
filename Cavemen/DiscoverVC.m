@@ -36,6 +36,7 @@
     NSUUID *sendorTagUUID = [[NSUUID alloc] initWithUUIDString:TI_BLE_UUID];
     
     _beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:sendorTagUUID identifier:@"cavemen.beacon"];
+    _beaconRegion.notifyEntryStateOnDisplay = YES;
     [_locationManager startMonitoringForRegion:_beaconRegion];
     
     self.statusLabel.text = @"Searching...";
@@ -93,6 +94,11 @@
     self.statusLabel.text = @"Did exit region";
     
     NSLog(@"Did exit region");
+}
+
+- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
+
+    NSLog(@"Did determine state for region");
 }
 
 @end

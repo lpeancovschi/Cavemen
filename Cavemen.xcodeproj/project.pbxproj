@@ -515,6 +515,7 @@
 				GCC_PREFIX_HEADER = "Cavemen/Cavemen-Prefix.pch";
 				INFOPLIST_FILE = "Cavemen/Cavemen-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3AD20792-0738-4AB6-B8D6-2AD91CE96080";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -529,6 +530,7 @@
 				GCC_PREFIX_HEADER = "Cavemen/Cavemen-Prefix.pch";
 				INFOPLIST_FILE = "Cavemen/Cavemen-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "3AD20792-0738-4AB6-B8D6-2AD91CE96080";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
