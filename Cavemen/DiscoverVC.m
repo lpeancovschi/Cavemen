@@ -8,7 +8,7 @@
 
 #import "DiscoverVC.h"
 
-#define TI_BLE_UUID                 @"0497BB50-9830-FCD1-B929-D6D8D513C506"
+#define TI_BLE_UUID                 @"F7FAEFE7-602F-475E-9C37-CDAA20B474D2"
 
 @interface DiscoverVC ()
 
@@ -35,7 +35,7 @@
     
     NSUUID *sendorTagUUID = [[NSUUID alloc] initWithUUIDString:TI_BLE_UUID];
     
-    _beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:sendorTagUUID identifier:@"cavemen.beacon"];
+    _beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:sendorTagUUID major:1 minor:1 identifier:@"myBeacon"];
     [_locationManager startMonitoringForRegion:_beaconRegion];
     
     self.statusLabel.text = @"Searching...";
