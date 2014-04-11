@@ -35,12 +35,9 @@
     
     NSUUID *sendorTagUUID = [[NSUUID alloc] initWithUUIDString:TI_BLE_UUID];
     
-<<<<<<< HEAD
-    _beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:sendorTagUUID major:1 minor:1 identifier:@"myBeacon"];
-=======
     _beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:sendorTagUUID identifier:@"cavemen.beacon"];
     _beaconRegion.notifyEntryStateOnDisplay = YES;
->>>>>>> FETCH_HEAD
+    
     [_locationManager startMonitoringForRegion:_beaconRegion];
     
     self.statusLabel.text = @"Searching...";
