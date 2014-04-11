@@ -8,7 +8,7 @@
 
 #import "DiscoverVC.h"
 
-#define TI_BLE_UUID                 @"F7FAEFE7-602F-475E-9C37-CDAA20B474D2"
+#define TI_BLE_UUID                 @"0497BB50-9830-FCD1-B929-D6D8D513C506"
 
 @interface DiscoverVC ()
 

@@ -31,6 +31,10 @@
 		4FA13FEA18EEF90E009A660B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FA13FE818EEF90E009A660B /* InfoPlist.strings */; };
 		4FA13FEC18EEF90E009A660B /* CavemenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA13FEB18EEF90E009A660B /* CavemenTests.m */; };
 		4FDB480C18F6A21600604AC5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB480B18F6A21600604AC5 /* CoreLocation.framework */; };
+		4FDB485318F82C1D00604AC5 /* ENLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB485218F82C1D00604AC5 /* ENLocationManager.m */; };
+		4FDB485718F845B000604AC5 /* QRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB485618F845B000604AC5 /* QRCodeVC.m */; };
+		4FDB485C18F8474200604AC5 /* QRResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB485A18F8474200604AC5 /* QRResultVC.m */; };
+		4FDB485D18F8474200604AC5 /* QRResultVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FDB485B18F8474200604AC5 /* QRResultVC.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +81,13 @@
 		4FA13FE918EEF90E009A660B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4FA13FEB18EEF90E009A660B /* CavemenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CavemenTests.m; sourceTree = "<group>"; };
 		4FDB480B18F6A21600604AC5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		4FDB485118F82C1D00604AC5 /* ENLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENLocationManager.h; sourceTree = "<group>"; };
+		4FDB485218F82C1D00604AC5 /* ENLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENLocationManager.m; sourceTree = "<group>"; };
+		4FDB485518F845B000604AC5 /* QRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeVC.h; sourceTree = "<group>"; };
+		4FDB485618F845B000604AC5 /* QRCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeVC.m; sourceTree = "<group>"; };
+		4FDB485918F8474200604AC5 /* QRResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRResultVC.h; sourceTree = "<group>"; };
+		4FDB485A18F8474200604AC5 /* QRResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRResultVC.m; sourceTree = "<group>"; };
+		4FDB485B18F8474200604AC5 /* QRResultVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRResultVC.xib; sourceTree = "<group>"; };
 		82A7006D697446A298593137 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		D097E7D1840C4578BE447906 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -140,6 +151,8 @@
 		3B6A693518F1CB6900EBE271 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				4FDB485818F8472A00604AC5 /* QRResultVC */,
+				4FDB485418F8459100604AC5 /* QR Code VC */,
 				3B18E5BC18F47E0300367184 /* Discover VC */,
 				3B6A694018F1CBDE00EBE271 /* LeftMenuVC */,
 				3B6A693A18F1CBC600EBE271 /* Main VC */,
@@ -214,6 +227,7 @@
 		4FA13FCC18EEF90D009A660B /* Cavemen */ = {
 			isa = PBXGroup;
 			children = (
+				4FDB485018F82C0400604AC5 /* ENLocationManager */,
 				3B18E5C418F4850000367184 /* Data Model */,
 				3B6A693518F1CB6900EBE271 /* View Controllers */,
 				4FA13FD518EEF90D009A660B /* AppDelegate.h */,
@@ -251,6 +265,34 @@
 				4FA13FE818EEF90E009A660B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4FDB485018F82C0400604AC5 /* ENLocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				4FDB485118F82C1D00604AC5 /* ENLocationManager.h */,
+				4FDB485218F82C1D00604AC5 /* ENLocationManager.m */,
+			);
+			name = ENLocationManager;
+			sourceTree = "<group>";
+		};
+		4FDB485418F8459100604AC5 /* QR Code VC */ = {
+			isa = PBXGroup;
+			children = (
+				4FDB485518F845B000604AC5 /* QRCodeVC.h */,
+				4FDB485618F845B000604AC5 /* QRCodeVC.m */,
+			);
+			name = "QR Code VC";
+			sourceTree = "<group>";
+		};
+		4FDB485818F8472A00604AC5 /* QRResultVC */ = {
+			isa = PBXGroup;
+			children = (
+				4FDB485918F8474200604AC5 /* QRResultVC.h */,
+				4FDB485A18F8474200604AC5 /* QRResultVC.m */,
+				4FDB485B18F8474200604AC5 /* QRResultVC.xib */,
+			);
+			name = QRResultVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,6 +376,7 @@
 				3B18E5C118F47E5300367184 /* DiscoverVC.xib in Resources */,
 				3B6A693F18F1CBD800EBE271 /* MainVC.xib in Resources */,
 				4FA13FD118EEF90D009A660B /* InfoPlist.strings in Resources */,
+				4FDB485D18F8474200604AC5 /* QRResultVC.xib in Resources */,
 				4FA13FD918EEF90D009A660B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,8 +434,11 @@
 				3B6A693E18F1CBD800EBE271 /* MainVC.m in Sources */,
 				4FA13FD718EEF90D009A660B /* AppDelegate.m in Sources */,
 				4FA13FD318EEF90D009A660B /* main.m in Sources */,
+				4FDB485C18F8474200604AC5 /* QRResultVC.m in Sources */,
 				3B18E5C718F4851E00367184 /* LeftMenuDataModel.m in Sources */,
+				4FDB485718F845B000604AC5 /* QRCodeVC.m in Sources */,
 				3B6A694718F1CC0A00EBE271 /* LeftMenuVC.m in Sources */,
+				4FDB485318F82C1D00604AC5 /* ENLocationManager.m in Sources */,
 				3B18E5C018F47E5300367184 /* DiscoverVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
