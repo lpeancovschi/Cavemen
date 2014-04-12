@@ -158,14 +158,16 @@
             
             if (isTableFree) {
                 
-                [self unsubscribeFromCurrentWithSuccessBlock:^(){} failureBlock:^(){}];
+                [self unsubscribeFromCurrentWithSuccessBlock:^(){
                 
-                [self changeTableStatus:tableToken status:TABLE_BOOKED];
-            
-                [currentPersonPFObject setObject:tableToken forKey:@"tableToken"];
-                [currentPersonPFObject saveInBackground];
-                
-                successBlock();
+                    [self changeTableStatus:tableToken status:TABLE_BOOKED];
+                    
+                    [currentPersonPFObject setObject:tableToken forKey:@"tableToken"];
+                    [currentPersonPFObject saveInBackground];
+                    
+                    successBlock();
+                } failureBlock:^(){
+                }];
             } 
             
         } else {

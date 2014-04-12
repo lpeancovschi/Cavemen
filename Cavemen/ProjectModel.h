@@ -10,4 +10,6 @@
 
 @interface ProjectModel : NSObject
 
+//@property (nonatomic, strong)
+
 @end
