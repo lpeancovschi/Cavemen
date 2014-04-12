@@ -142,6 +142,7 @@
                     personModel.jobTitle  = [object objectForKey:@"jobTitle"];
                     personModel.photoURI  = [object objectForKey:@"photoUri"];
                     personModel.projects  = [object objectForKey:@"projects"];
+                    personModel.tableToken = [object objectForKey:@"tableToken"];
                     
                     isTableFree = NO;
                     

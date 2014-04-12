@@ -12,6 +12,9 @@
 #import "GodClient.h"
 #import "TableModel.h"
 #import "UserDetailsViewControlelr.h"
+#import "ProjectModel.h"
+#import "ProjectVC.h"
+#import "CurrentPerson.h"
 
 #define BEACON_IDENTIFIER_TABLE     @"cavemen.beacon"
 
@@ -26,6 +29,8 @@
 
     CLLocationManager *_locationManager;
     CLBeaconRegion *_beaconRegionEndavaDUTable;
+    
+    BOOL _monitorProjects;
 }
 
 - (void)viewDidLoad
@@ -34,6 +39,7 @@
 
     self.title = @"Identify table";
     self.tokenTextField.delegate = self;
+    _monitorProjects = NO;
     
     UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
     
@@ -89,27 +95,50 @@
                 
         CLBeacon *nearestExhibit = [beacons firstObject];
         
-        if ((nearestExhibit.proximity == CLProximityImmediate) &&
-            (nearestExhibit.accuracy <= 0.1)) {
-            
-            NSString *code;
-            
-            NSLog(@"ID: %@, %@", nearestExhibit.major, nearestExhibit.minor);
-            
-            if (([nearestExhibit.major isEqual:@1]) && ([nearestExhibit.minor isEqual:@1])) {
-                code = @"1234";
-            } if (([nearestExhibit.major isEqual:@2]) && ([nearestExhibit.minor isEqual:@1])) {
-                code = @"4321";
-            }
-            
-            [self.presentedViewController dismissViewControllerAnimated:YES completion:^{
-                [self didScanCode:code];
-                [self stopBeaconMonitoring];
-            }];
-        } else if (nearestExhibit.proximity == CLProximityNear) {
+        if (_monitorProjects) {
         
-            
+            [self processProjectMonitoringWithBeacon:nearestExhibit];
+        } else {
+            if ((nearestExhibit.proximity == CLProximityImmediate) &&
+                (nearestExhibit.accuracy <= 0.1)) {
+                
+                NSString *code;
+                
+                NSLog(@"ID: %@, %@", nearestExhibit.major, nearestExhibit.minor);
+                
+                if (([nearestExhibit.major isEqual:@1]) && ([nearestExhibit.minor isEqual:@1])) {
+                    code = @"10";
+                } if (([nearestExhibit.major isEqual:@2]) && ([nearestExhibit.minor isEqual:@1])) {
+                    code = @"15";
+                }
+                
+                [self.presentedViewController dismissViewControllerAnimated:YES completion:^{
+                    [self didScanCode:code];
+                    [self stopBeaconMonitoring];
+                }];
+            }
         }
+    }
+}
+
+- (void)processProjectMonitoringWithBeacon:(CLBeacon *)nearestExhibit {
+
+    if (nearestExhibit.proximity == CLProximityNear) {
+        
+        NSString *code;
+        
+        NSLog(@"ID: %@, %@", nearestExhibit.major, nearestExhibit.minor);
+        
+        if (([nearestExhibit.major isEqual:@2]) && ([nearestExhibit.minor isEqual:@1000])) {
+            code = @"1";
+        } if (([nearestExhibit.major isEqual:@2]) && ([nearestExhibit.minor isEqual:@1001])) {
+            code = @"2";
+        }
+        
+        [self.presentedViewController dismissViewControllerAnimated:YES completion:^{
+            [self didScanProjectCode:code];
+            [self stopBeaconMonitoring];
+        }];
     }
 }
 
@@ -128,6 +157,20 @@
 
 - (IBAction)didPressScanBeacon:(id)sender
 {
+    _monitorProjects = NO;
+    
+    TempInfoViewControlelrViewController *tempInfoVC = [[TempInfoViewControlelrViewController alloc] init];
+    
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:tempInfoVC] animated:YES completion:^{
+        
+        [self startBeaconsDiscovery];
+    }];
+}
+
+- (IBAction)didPressScanProject:(id)sender {
+
+    _monitorProjects = YES;
+    
     TempInfoViewControlelrViewController *tempInfoVC = [[TempInfoViewControlelrViewController alloc] init];
     
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:tempInfoVC] animated:YES completion:^{
@@ -150,6 +193,8 @@
 
 - (IBAction)didPressScanQRCode:(id)sender
 {
+    _monitorProjects = NO;
+    
     QRCodeVC *qrCodeVC = [[QRCodeVC alloc] init];
     qrCodeVC.delegate = self;
     
@@ -162,36 +207,42 @@
 {
     NSLog(@"Did scan code: %@", code);
     
-    if (code.length == 4) {
+    if (code.length <= 4) {
         
-        // TODO: Remap
-        NSString *token;
-        if ([code isEqual:@"1234"]) {
-            token = @"10";
-        } else if ([code isEqual:@"4321"]) {
-            token = @"15";
-        }
-        
-        [[GodClient sharedInstance] getTableWithToken:token successBlock:^(TableModel *tableModel) {
+        [[GodClient sharedInstance] getTableWithToken:code successBlock:^(TableModel *tableModel) {
             
-            [[GodClient sharedInstance] bookTableWithToken:token successBlock:^{
+            [[GodClient sharedInstance] bookTableWithToken:code successBlock:^{
                 
-                NSLog(@"Table booked");
+                UserDetailsViewControlelr *userDetails = [[UserDetailsViewControlelr alloc] initWithPersonModel:[CurrentPerson sharedInstance]];
+                userDetails.personQuickLook = YES;
+                [self presentViewController:[[UINavigationController alloc] initWithRootViewController:userDetails] animated:YES completion:nil];
                 
             } failureBlock:^(PersonModel *tableOwnerPerson) {
                 
                 UserDetailsViewControlelr *userDetails = [[UserDetailsViewControlelr alloc] initWithPersonModel:tableOwnerPerson];
                 userDetails.personQuickLook = YES;
-                [self presentViewController:[[UINavigationController alloc] initWithRootViewController:userDetails] animated:YES completion:^{
-                    
-                }];
+                [self presentViewController:[[UINavigationController alloc] initWithRootViewController:userDetails] animated:YES completion:nil];
             }];
             
         } failureBlock:^(NSString *errroMsg) {
             
-            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errroMsg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
         }];
     }
+}
+
+- (void)didScanProjectCode:(NSString *)code {
+
+    [[GodClient sharedInstance] getProjectForToken:code success:^(ProjectModel *projectModel){
+    
+        ProjectVC *projectVC = [[ProjectVC alloc] init];
+        projectVC.projectModel = projectModel;
+        [self.navigationController pushViewController:projectVC animated:YES];
+        
+    } failureBlock:^(NSString *errorMsg){
+    
+    }];
 }
 
 @end
