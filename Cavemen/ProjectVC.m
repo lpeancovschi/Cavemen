@@ -7,10 +7,14 @@
 //
 
 #import "ProjectVC.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
+#import "ProjectModel.h"
 
 @interface ProjectVC ()
 
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UIImageView *projectLogoView;
+@property (nonatomic, weak) IBOutlet UILabel *projectName;
+@property (nonatomic, weak) IBOutlet UITextView *projectDescription;
 
 @end
 
@@ -19,9 +23,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-}
 
-#pragma mark - Table View Data Source
+    [self.projectLogoView setImageWithURL:[NSURL URLWithString:self.projectModel.projectIconUri] placeholderImage:[UIImage imageNamed:@"projectPlaceholder"]];
+    self.projectName.text = self.projectModel.projectTitle;
+    self.projectDescription.text = self.projectModel.projectDescription;
+}
 
 @end

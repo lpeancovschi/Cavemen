@@ -74,13 +74,14 @@
 //        NSLog(@"person.jobTitle = %@", personModel.jobTitle);
 //    } failureBlock:^(NSString *errorMsg){}];
     
-    [godClient getProjectForToken:@"1" success:^(ProjectModel *projectModel){
-    
-        
-    } failureBlock:^(NSString *errorMsg){
-    
-        
-    }];
+//    [godClient getProjectForToken:@"1" success:^(ProjectModel *projectModel){
+//    
+//        NSLog(@"project.title = %@", projectModel.projectTitle);
+//        NSLog(@"project.descr = %@", projectModel.projectDescription);
+//    } failureBlock:^(NSString *errorMsg){
+//    
+//        
+//    }];
     
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.loginVC];
     self.window.backgroundColor = [UIColor whiteColor];

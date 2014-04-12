@@ -106,6 +106,9 @@
                 [self didScanCode:code];
                 [self stopBeaconMonitoring];
             }];
+        } else if (nearestExhibit.proximity == CLProximityNear) {
+        
+            
         }
     }
 }

@@ -104,13 +104,13 @@
         currentPerson.projects = personModel.projects;
         currentPerson.tableToken = personModel.tableToken;
         
-//        [godClient bookTableWithToken:@"1" successBlock:^(){
-//        
-//            NSLog(@"table 1 has been booked");
-//        } failureBlock:^(PersonModel *tableOwner){
-//        
-//            NSLog(@"table 1 is occupied by %@", tableOwner.firstName);
-//        }];
+        [godClient bookTableWithToken:@"15" successBlock:^(){
+        
+            NSLog(@"table 1 has been booked");
+        } failureBlock:^(PersonModel *tableOwner){
+        
+            NSLog(@"table 1 is occupied by %@", tableOwner.firstName);
+        }];
 
 //        [godClient unsubscribeFromCurrentWithSuccessBlock:^(){} failureBlock:^(){}];
         
