@@ -52,6 +52,8 @@
     [self.drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [self.drawer setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logOut) name:@"logout" object:nil];
+    
     GodClient *godClient = [GodClient sharedInstance];
     [godClient getTableWithToken:@"1" successBlock:^(TableModel *tableModel) {
     
@@ -76,6 +78,18 @@
     [self.window makeKeyAndVisible];
     
     return YES;
+}
+
+- (void)logOut
+{
+    [UIView transitionFromView:self.window.rootViewController.view
+                        toView:self.loginVC.view
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionFlipFromRight
+                    completion:^(BOOL finished)
+     {
+         self.window.rootViewController = self.loginVC;
+     }];
 }
 
 - (void)didLoginWithUsername:(NSString *)username

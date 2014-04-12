@@ -11,6 +11,7 @@
 #import "QRCodeVC.h"
 #import "GodClient.h"
 #import "TableModel.h"
+#import "UserDetailsViewControlelr.h"
 
 #define BEACON_IDENTIFIER_TABLE     @"cavemen.beacon"
 
@@ -65,6 +66,8 @@
 - (void)stopBeaconMonitoring
 {
     [_locationManager stopMonitoringForRegion:_beaconRegionEndavaDUTable];
+    [_locationManager stopRangingBeaconsInRegion:_beaconRegionEndavaDUTable];
+    _locationManager = nil;
 }
 
 #pragma mark - CLLocationManagerDelegate
@@ -101,6 +104,7 @@
             
             [self.presentedViewController dismissViewControllerAnimated:YES completion:^{
                 [self didScanCode:code];
+                [self stopBeaconMonitoring];
             }];
         }
     }
@@ -167,26 +171,18 @@
         
         [[GodClient sharedInstance] getTableWithToken:token successBlock:^(TableModel *tableModel) {
             
-            if (tableModel.tableStatus == EMPTY) {
+            [[GodClient sharedInstance] bookTableWithToken:token successBlock:^{
                 
-                [[GodClient sharedInstance] unsubscribeFromCurrentWithSuccessBlock:^{
-                    
-                     NSLog(@"Table unsubscribed");
-                    
-                    [[GodClient sharedInstance] bookTableWithToken:token successBlock:^{
-                        
-                        NSLog(@"Table booked");
-                        
-                    } failureBlock:^(PersonModel *tableOwnerPerson) {
-                        
-                        
-                    }];
-                    
-                } failureBlock:^{
-                    
+                NSLog(@"Table booked");
+                
+            } failureBlock:^(PersonModel *tableOwnerPerson) {
+                
+                UserDetailsViewControlelr *userDetails = [[UserDetailsViewControlelr alloc] initWithPersonModel:tableOwnerPerson];
+                userDetails.personQuickLook = YES;
+                [self presentViewController:[[UINavigationController alloc] initWithRootViewController:userDetails] animated:YES completion:^{
                     
                 }];
-            }
+            }];
             
         } failureBlock:^(NSString *errroMsg) {
             
