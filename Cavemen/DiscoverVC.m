@@ -8,8 +8,7 @@
 
 #import "DiscoverVC.h"
 
-#define BEACON_IDENTIFIER_TABLE     @"cavemen.beacon.table"
-#define BEACON_IDENTIFIER_PROJECT   @"cavemen.beacon.project"
+#define BEACON_IDENTIFIER_TABLE     @"cavemen.beacon"
 
 #define BEACON_REGION_PROXIMITY_UUID @"3AB1650D-20BD-4DCE-8AE2-B2B6D67FE109"
 
@@ -21,7 +20,6 @@
 
     CLLocationManager *_locationManager;
     CLBeaconRegion *_beaconRegionEndavaDUTable;
-    CLBeaconRegion *_beaconRegionEndavaDUProject;
 }
 
 - (void)viewDidLoad
@@ -37,14 +35,16 @@
     _beaconRegionEndavaDUTable = [[CLBeaconRegion alloc] initWithProximityUUID:beaconRegionEndavaDUUUID identifier:BEACON_IDENTIFIER_TABLE];
     _beaconRegionEndavaDUTable.notifyEntryStateOnDisplay = YES;
     
-    _beaconRegionEndavaDUProject = [[CLBeaconRegion alloc] initWithProximityUUID:beaconRegionEndavaDUUUID identifier:BEACON_IDENTIFIER_PROJECT];
-    _beaconRegionEndavaDUProject.notifyEntryStateOnDisplay = YES;
-    
     [_locationManager startMonitoringForRegion:_beaconRegionEndavaDUTable];
-    [_locationManager startMonitoringForRegion:_beaconRegionEndavaDUProject];
+    [self locationManager:_locationManager didStartMonitoringForRegion:_beaconRegionEndavaDUTable];
 }
 
 #pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
+{
+    [_locationManager startRangingBeaconsInRegion:(CLBeaconRegion *)region];
+}
 
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region
 {
@@ -59,7 +59,7 @@
     if ([beacons count] > 0) {
         
         CLBeacon *nearestExhibit = [beacons firstObject];
-        NSLog(@"Did range beacon. Accuracy = %f meters, rssi: %ld", nearestExhibit.accuracy, nearestExhibit.rssi);
+        NSLog(@"Did range beacon. Accuracy = %f meters, rssi: %ld, major: %@, minor: %@", nearestExhibit.accuracy, nearestExhibit.rssi, nearestExhibit.major, nearestExhibit.minor);
     }
 }
 

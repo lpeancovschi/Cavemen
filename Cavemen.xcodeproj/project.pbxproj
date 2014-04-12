@@ -35,6 +35,8 @@
 		4FDB485718F845B000604AC5 /* QRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB485618F845B000604AC5 /* QRCodeVC.m */; };
 		4FDB485C18F8474200604AC5 /* QRResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB485A18F8474200604AC5 /* QRResultVC.m */; };
 		4FDB485D18F8474200604AC5 /* QRResultVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FDB485B18F8474200604AC5 /* QRResultVC.xib */; };
+		CD57B13B18F95A5B00D0365D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD57B13918F95A5B00D0365D /* LoginViewController.m */; };
+		CD57B13C18F95A5B00D0365D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD57B13A18F95A5B00D0365D /* LoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +91,9 @@
 		4FDB485A18F8474200604AC5 /* QRResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRResultVC.m; sourceTree = "<group>"; };
 		4FDB485B18F8474200604AC5 /* QRResultVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRResultVC.xib; sourceTree = "<group>"; };
 		82A7006D697446A298593137 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		CD57B13818F95A5B00D0365D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		CD57B13918F95A5B00D0365D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		CD57B13A18F95A5B00D0365D /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		D097E7D1840C4578BE447906 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -157,6 +162,9 @@
 				3B6A694018F1CBDE00EBE271 /* LeftMenuVC */,
 				3B6A693A18F1CBC600EBE271 /* Main VC */,
 				3B6A693618F1CB7300EBE271 /* Base VC */,
+				CD57B13818F95A5B00D0365D /* LoginViewController.h */,
+				CD57B13918F95A5B00D0365D /* LoginViewController.m */,
+				CD57B13A18F95A5B00D0365D /* LoginViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -377,6 +385,7 @@
 				3B6A693F18F1CBD800EBE271 /* MainVC.xib in Resources */,
 				4FA13FD118EEF90D009A660B /* InfoPlist.strings in Resources */,
 				4FDB485D18F8474200604AC5 /* QRResultVC.xib in Resources */,
+				CD57B13C18F95A5B00D0365D /* LoginViewController.xib in Resources */,
 				4FA13FD918EEF90D009A660B /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,6 +446,7 @@
 				4FDB485C18F8474200604AC5 /* QRResultVC.m in Sources */,
 				3B18E5C718F4851E00367184 /* LeftMenuDataModel.m in Sources */,
 				4FDB485718F845B000604AC5 /* QRCodeVC.m in Sources */,
+				CD57B13B18F95A5B00D0365D /* LoginViewController.m in Sources */,
 				3B6A694718F1CC0A00EBE271 /* LeftMenuVC.m in Sources */,
 				4FDB485318F82C1D00604AC5 /* ENLocationManager.m in Sources */,
 				3B18E5C018F47E5300367184 /* DiscoverVC.m in Sources */,

@@ -10,6 +10,14 @@
 #import <MMDrawerController/MMDrawerController.h>
 #import "LeftMenuVC.h"
 #import "DiscoverVC.h"
+#import "LoginViewController.h"
+
+@interface AppDelegate ()
+
+@property (nonatomic) LoginViewController *loginVC;
+@property (nonatomic) MMDrawerController *drawerC;
+
+@end
 
 @implementation AppDelegate
 
@@ -22,12 +30,24 @@
     DiscoverVC *discoverVC            = [[DiscoverVC alloc] init];
     UINavigationController *centerNav = [[UINavigationController alloc] initWithRootViewController:discoverVC];
     
-    MMDrawerController *drawer = [[MMDrawerController alloc] initWithCenterViewController:centerNav leftDrawerViewController:leftMenu];
-    [drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
-    [drawer setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    self.drawerC = [[MMDrawerController alloc] initWithCenterViewController:centerNav leftDrawerViewController:leftMenu];
+    [self.drawerC setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [self.drawerC setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     
-    self.window.rootViewController = drawer;
+    self.window.rootViewController = self.loginVC;
     self.window.backgroundColor    = [UIColor whiteColor];
+    
+//    [UIView transitionFromView:self.window.rootViewController.view
+//                        toView:self.centerViewController.view
+//                      duration:0.5
+//                       options:UIViewAnimationOptionTransitionCurlUp
+//                    completion:^(BOOL finished)
+//     {
+//         self.window.rootViewController = self.centerViewController;
+//     }];
+    
+    self.window.rootViewController = self.drawerC;
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
