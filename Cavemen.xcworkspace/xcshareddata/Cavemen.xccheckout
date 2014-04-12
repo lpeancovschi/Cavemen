@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>8DF1DF43-50B2-4285-96CE-47DD800C2338</string>
+	<string>50750DE0-BCDF-4B5F-B852-875236EBBD1F</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Cavemen</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>E0C9D915-A50C-41BA-A0B9-C2A16A990A0B</key>
-		<string>https://github.com/lpeancovschi/Cavemen.git</string>
+		<key>84B3AFE4-2785-435D-B69E-68443028F86D</key>
+		<string>https://github.com/lpeancovschi/Cavemen</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Cavemen.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>E0C9D915-A50C-41BA-A0B9-C2A16A990A0B</key>
+		<key>84B3AFE4-2785-435D-B69E-68443028F86D</key>
 		<string>..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/lpeancovschi/Cavemen.git</string>
+	<string>https://github.com/lpeancovschi/Cavemen</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E0C9D915-A50C-41BA-A0B9-C2A16A990A0B</string>
+	<string>84B3AFE4-2785-435D-B69E-68443028F86D</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E0C9D915-A50C-41BA-A0B9-C2A16A990A0B</string>
+			<string>84B3AFE4-2785-435D-B69E-68443028F86D</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Cavemen</string>
 		</dict>

@@ -1,24 +1,25 @@
 //
-//  MainVC.m
+//  UserDetailsViewControlelr.m
 //  Cavemen
 //
-//  Created by Leonid Peancovschi on 4/6/14.
+//  Created by Alex Maimescu on 4/12/14.
 //  Copyright (c) 2014 Endava. All rights reserved.
 //
 
-#import "MainVC.h"
+#import "UserDetailsViewControlelr.h"
 
-@interface MainVC ()
+@interface UserDetailsViewControlelr ()
 
 @end
 
-@implementation MainVC
+@implementation UserDetailsViewControlelr
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        
+        self.title = @"My Profile";
     }
     return self;
 }

@@ -8,20 +8,16 @@
 
 #import "LeftMenuDataModel.h"
 #import "LeftMenuItem.h"
-#import "MainVC.h"
 #import "DiscoverVC.h"
-#import "QRCodeVC.h"
-#import "ConfigViewController.h"
+#import "UserDetailsViewControlelr.h"
 
 @implementation LeftMenuDataModel
 
 + (NSArray *)leftMenuItems {
 
     NSArray *arr = @[
-                     [[LeftMenuItem alloc] initWithTitle:@"Main VC" class:[MainVC class]],
-                     [[LeftMenuItem alloc] initWithTitle:@"Discover VC" class:[DiscoverVC class]],
-                     [[LeftMenuItem alloc] initWithTitle:@"QRCode VC" class:[QRCodeVC class]],
-                     [[LeftMenuItem alloc] initWithTitle:@"Emitter VC" class:[ConfigViewController class]]
+                     [[LeftMenuItem alloc] initWithTitle:@"My Profile" class:[UserDetailsViewControlelr class]],
+                     [[LeftMenuItem alloc] initWithTitle:@"Check Table" class:[DiscoverVC class]]
                      ];
     
     return arr;

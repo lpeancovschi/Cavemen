@@ -26,6 +26,11 @@
 {
     [super viewDidLoad];
 
+    
+}
+
+- (void)startBeaconsDiscovery
+{
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.delegate = self;
     
@@ -59,7 +64,7 @@
     if ([beacons count] > 0) {
         
         CLBeacon *nearestExhibit = [beacons firstObject];
-        NSLog(@"Did range beacon. Accuracy = %f meters, rssi: %ld, major: %@, minor: %@", nearestExhibit.accuracy, nearestExhibit.rssi, nearestExhibit.major, nearestExhibit.minor);
+        NSLog(@"Did range beacon. Accuracy = %f meters, rssi: %d, major: %@, minor: %@", nearestExhibit.accuracy, nearestExhibit.rssi, nearestExhibit.major, nearestExhibit.minor);
     }
 }
 

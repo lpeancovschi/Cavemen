@@ -12,8 +12,6 @@
 		3B18E5C318F47EE000367184 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B18E5C218F47EE000367184 /* CoreBluetooth.framework */; };
 		3B18E5C718F4851E00367184 /* LeftMenuDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E5C618F4851E00367184 /* LeftMenuDataModel.m */; };
 		3B18E5CA18F4853300367184 /* LeftMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E5C918F4853300367184 /* LeftMenuItem.m */; };
-		3B18E64F18F9668300367184 /* AppConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E64C18F9668300367184 /* AppConstants.m */; };
-		3B18E65018F9668300367184 /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E64E18F9668300367184 /* ConfigViewController.m */; };
 		3B18E65318F96E6C00367184 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B18E65218F96E6C00367184 /* Parse.framework */; };
 		3B18E65518F96E9700367184 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B18E65418F96E9700367184 /* AudioToolbox.framework */; };
 		3B18E65718F96EA100367184 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B18E65618F96EA100367184 /* CFNetwork.framework */; };
@@ -31,8 +29,6 @@
 		3B18E67318F9808900367184 /* PersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E67218F9808900367184 /* PersonModel.m */; };
 		3B18E67618F98E8E00367184 /* CurrentPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E67518F98E8E00367184 /* CurrentPerson.m */; };
 		3B6A693918F1CB8F00EBE271 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6A693818F1CB8F00EBE271 /* BaseVC.m */; };
-		3B6A693E18F1CBD800EBE271 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6A693C18F1CBD800EBE271 /* MainVC.m */; };
-		3B6A693F18F1CBD800EBE271 /* MainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6A693D18F1CBD800EBE271 /* MainVC.xib */; };
 		3B6A694718F1CC0A00EBE271 /* LeftMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6A694518F1CC0A00EBE271 /* LeftMenuVC.m */; };
 		3B6A694818F1CC0A00EBE271 /* LeftMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6A694618F1CC0A00EBE271 /* LeftMenuVC.xib */; };
 		44F8151C11E4407BB5121FEA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D097E7D1840C4578BE447906 /* libPods.a */; };
@@ -51,10 +47,12 @@
 		4FDB480C18F6A21600604AC5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB480B18F6A21600604AC5 /* CoreLocation.framework */; };
 		4FDB485318F82C1D00604AC5 /* ENLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB485218F82C1D00604AC5 /* ENLocationManager.m */; };
 		4FDB485718F845B000604AC5 /* QRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB485618F845B000604AC5 /* QRCodeVC.m */; };
-		4FDB485C18F8474200604AC5 /* QRResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB485A18F8474200604AC5 /* QRResultVC.m */; };
-		4FDB485D18F8474200604AC5 /* QRResultVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FDB485B18F8474200604AC5 /* QRResultVC.xib */; };
 		CD57B13B18F95A5B00D0365D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD57B13918F95A5B00D0365D /* LoginViewController.m */; };
 		CD57B13C18F95A5B00D0365D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD57B13A18F95A5B00D0365D /* LoginViewController.xib */; };
+		CD8193A218F974E000D7B9A9 /* UserDetailsViewControlelr.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8193A018F974E000D7B9A9 /* UserDetailsViewControlelr.m */; };
+		CD8193A318F974E000D7B9A9 /* UserDetailsViewControlelr.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8193A118F974E000D7B9A9 /* UserDetailsViewControlelr.xib */; };
+		CD8193A718F97A2200D7B9A9 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8193A518F97A2200D7B9A9 /* ResultsViewController.m */; };
+		CD8193A818F97A2200D7B9A9 /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8193A618F97A2200D7B9A9 /* ResultsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,10 +74,6 @@
 		3B18E5C618F4851E00367184 /* LeftMenuDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuDataModel.m; sourceTree = "<group>"; };
 		3B18E5C818F4853300367184 /* LeftMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuItem.h; sourceTree = "<group>"; };
 		3B18E5C918F4853300367184 /* LeftMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuItem.m; sourceTree = "<group>"; };
-		3B18E64B18F9668300367184 /* AppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
-		3B18E64C18F9668300367184 /* AppConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppConstants.m; sourceTree = "<group>"; };
-		3B18E64D18F9668300367184 /* ConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigViewController.h; sourceTree = "<group>"; };
-		3B18E64E18F9668300367184 /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigViewController.m; sourceTree = "<group>"; };
 		3B18E65218F96E6C00367184 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		3B18E65418F96E9700367184 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		3B18E65618F96EA100367184 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -102,9 +96,6 @@
 		3B18E67518F98E8E00367184 /* CurrentPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentPerson.m; sourceTree = "<group>"; };
 		3B6A693718F1CB8F00EBE271 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
 		3B6A693818F1CB8F00EBE271 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
-		3B6A693B18F1CBD800EBE271 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
-		3B6A693C18F1CBD800EBE271 /* MainVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
-		3B6A693D18F1CBD800EBE271 /* MainVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainVC.xib; sourceTree = "<group>"; };
 		3B6A694418F1CC0A00EBE271 /* LeftMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuVC.h; sourceTree = "<group>"; };
 		3B6A694518F1CC0A00EBE271 /* LeftMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuVC.m; sourceTree = "<group>"; };
 		3B6A694618F1CC0A00EBE271 /* LeftMenuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuVC.xib; sourceTree = "<group>"; };
@@ -129,13 +120,16 @@
 		4FDB485218F82C1D00604AC5 /* ENLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENLocationManager.m; sourceTree = "<group>"; };
 		4FDB485518F845B000604AC5 /* QRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeVC.h; sourceTree = "<group>"; };
 		4FDB485618F845B000604AC5 /* QRCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeVC.m; sourceTree = "<group>"; };
-		4FDB485918F8474200604AC5 /* QRResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRResultVC.h; sourceTree = "<group>"; };
-		4FDB485A18F8474200604AC5 /* QRResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRResultVC.m; sourceTree = "<group>"; };
-		4FDB485B18F8474200604AC5 /* QRResultVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRResultVC.xib; sourceTree = "<group>"; };
 		82A7006D697446A298593137 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		CD57B13818F95A5B00D0365D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CD57B13918F95A5B00D0365D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CD57B13A18F95A5B00D0365D /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		CD81939F18F974E000D7B9A9 /* UserDetailsViewControlelr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailsViewControlelr.h; sourceTree = "<group>"; };
+		CD8193A018F974E000D7B9A9 /* UserDetailsViewControlelr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailsViewControlelr.m; sourceTree = "<group>"; };
+		CD8193A118F974E000D7B9A9 /* UserDetailsViewControlelr.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailsViewControlelr.xib; sourceTree = "<group>"; };
+		CD8193A418F97A2200D7B9A9 /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
+		CD8193A518F97A2200D7B9A9 /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
+		CD8193A618F97A2200D7B9A9 /* ResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
 		D097E7D1840C4578BE447906 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -178,16 +172,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3B18E5BC18F47E0300367184 /* Discover VC */ = {
-			isa = PBXGroup;
-			children = (
-				3B18E5BD18F47E5300367184 /* DiscoverVC.h */,
-				3B18E5BE18F47E5300367184 /* DiscoverVC.m */,
-				3B18E5BF18F47E5300367184 /* DiscoverVC.xib */,
-			);
-			name = "Discover VC";
-			sourceTree = "<group>";
-		};
 		3B18E5C418F4850000367184 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,15 +197,6 @@
 			name = "Left Menu";
 			sourceTree = "<group>";
 		};
-		3B18E65118F9668700367184 /* Emitter VC */ = {
-			isa = PBXGroup;
-			children = (
-				3B18E64D18F9668300367184 /* ConfigViewController.h */,
-				3B18E64E18F9668300367184 /* ConfigViewController.m */,
-			);
-			name = "Emitter VC";
-			sourceTree = "<group>";
-		};
 		3B18E66A18F976BC00367184 /* RestClient */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,18 +209,21 @@
 		3B6A693518F1CB6900EBE271 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3B18E65118F9668700367184 /* Emitter VC */,
-				3B18E64B18F9668300367184 /* AppConstants.h */,
-				3B18E64C18F9668300367184 /* AppConstants.m */,
-				4FDB485818F8472A00604AC5 /* QRResultVC */,
 				4FDB485418F8459100604AC5 /* QR Code VC */,
-				3B18E5BC18F47E0300367184 /* Discover VC */,
 				3B6A694018F1CBDE00EBE271 /* LeftMenuVC */,
-				3B6A693A18F1CBC600EBE271 /* Main VC */,
 				3B6A693618F1CB7300EBE271 /* Base VC */,
+				3B18E5BD18F47E5300367184 /* DiscoverVC.h */,
+				3B18E5BE18F47E5300367184 /* DiscoverVC.m */,
+				3B18E5BF18F47E5300367184 /* DiscoverVC.xib */,
 				CD57B13818F95A5B00D0365D /* LoginViewController.h */,
 				CD57B13918F95A5B00D0365D /* LoginViewController.m */,
 				CD57B13A18F95A5B00D0365D /* LoginViewController.xib */,
+				CD81939F18F974E000D7B9A9 /* UserDetailsViewControlelr.h */,
+				CD8193A018F974E000D7B9A9 /* UserDetailsViewControlelr.m */,
+				CD8193A118F974E000D7B9A9 /* UserDetailsViewControlelr.xib */,
+				CD8193A418F97A2200D7B9A9 /* ResultsViewController.h */,
+				CD8193A518F97A2200D7B9A9 /* ResultsViewController.m */,
+				CD8193A618F97A2200D7B9A9 /* ResultsViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -257,16 +235,6 @@
 				3B6A693818F1CB8F00EBE271 /* BaseVC.m */,
 			);
 			name = "Base VC";
-			sourceTree = "<group>";
-		};
-		3B6A693A18F1CBC600EBE271 /* Main VC */ = {
-			isa = PBXGroup;
-			children = (
-				3B6A693B18F1CBD800EBE271 /* MainVC.h */,
-				3B6A693C18F1CBD800EBE271 /* MainVC.m */,
-				3B6A693D18F1CBD800EBE271 /* MainVC.xib */,
-			);
-			name = "Main VC";
 			sourceTree = "<group>";
 		};
 		3B6A694018F1CBDE00EBE271 /* LeftMenuVC */ = {
@@ -387,16 +355,6 @@
 			name = "QR Code VC";
 			sourceTree = "<group>";
 		};
-		4FDB485818F8472A00604AC5 /* QRResultVC */ = {
-			isa = PBXGroup;
-			children = (
-				4FDB485918F8474200604AC5 /* QRResultVC.h */,
-				4FDB485A18F8474200604AC5 /* QRResultVC.m */,
-				4FDB485B18F8474200604AC5 /* QRResultVC.xib */,
-			);
-			name = QRResultVC;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -476,9 +434,9 @@
 			files = (
 				3B6A694818F1CC0A00EBE271 /* LeftMenuVC.xib in Resources */,
 				3B18E5C118F47E5300367184 /* DiscoverVC.xib in Resources */,
-				3B6A693F18F1CBD800EBE271 /* MainVC.xib in Resources */,
+				CD8193A318F974E000D7B9A9 /* UserDetailsViewControlelr.xib in Resources */,
+				CD8193A818F97A2200D7B9A9 /* ResultsViewController.xib in Resources */,
 				4FA13FD118EEF90D009A660B /* InfoPlist.strings in Resources */,
-				4FDB485D18F8474200604AC5 /* QRResultVC.xib in Resources */,
 				CD57B13C18F95A5B00D0365D /* LoginViewController.xib in Resources */,
 				4FA13FD918EEF90D009A660B /* Images.xcassets in Resources */,
 			);
@@ -533,13 +491,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B18E67018F979E700367184 /* TableModel.m in Sources */,
-				3B18E64F18F9668300367184 /* AppConstants.m in Sources */,
+				CD8193A718F97A2200D7B9A9 /* ResultsViewController.m in Sources */,
 				3B18E5CA18F4853300367184 /* LeftMenuItem.m in Sources */,
+				CD8193A218F974E000D7B9A9 /* UserDetailsViewControlelr.m in Sources */,
 				3B6A693918F1CB8F00EBE271 /* BaseVC.m in Sources */,
-				3B6A693E18F1CBD800EBE271 /* MainVC.m in Sources */,
 				4FA13FD718EEF90D009A660B /* AppDelegate.m in Sources */,
 				4FA13FD318EEF90D009A660B /* main.m in Sources */,
-				4FDB485C18F8474200604AC5 /* QRResultVC.m in Sources */,
 				3B18E67318F9808900367184 /* PersonModel.m in Sources */,
 				3B18E5C718F4851E00367184 /* LeftMenuDataModel.m in Sources */,
 				3B18E66D18F976E100367184 /* GodClient.m in Sources */,
@@ -548,7 +505,6 @@
 				CD57B13B18F95A5B00D0365D /* LoginViewController.m in Sources */,
 				3B6A694718F1CC0A00EBE271 /* LeftMenuVC.m in Sources */,
 				4FDB485318F82C1D00604AC5 /* ENLocationManager.m in Sources */,
-				3B18E65018F9668300367184 /* ConfigViewController.m in Sources */,
 				3B18E5C018F47E5300367184 /* DiscoverVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

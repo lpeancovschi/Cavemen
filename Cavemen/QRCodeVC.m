@@ -7,7 +7,6 @@
 //
 
 #import "QRCodeVC.h"
-#import "QRResultVC.h"
 
 @interface QRCodeVC ()
 
@@ -49,9 +48,6 @@
         break;
     
     NSLog(@"decoded symbol = %@", symbol.data);
-    
-    QRResultVC *resultVC = [[QRResultVC alloc] initWithQRCodeString:symbol.data];
-    [self.navigationController pushViewController:resultVC animated:YES];
 }
 
 @end
