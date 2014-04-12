@@ -42,6 +42,25 @@
         self.personModel = [CurrentPerson sharedInstance];
     }
     
+    if (self.personQuickLook) {
+        
+        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+        
+        self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+        self.navigationItem.leftBarButtonItem = cancelButton;
+        
+        self.title = @"Table Owner";
+    }
+    else
+    {
+        self.title = @"My Profile";
+        
+        UIBarButtonItem *logoutButton = [[UIBarButtonItem alloc] initWithTitle:@"Log Out" style:UIBarButtonItemStyleBordered target:self action:@selector(logout)];
+        
+        self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+        self.navigationItem.rightBarButtonItem = logoutButton;
+    }
+    
     self.tableTokenLabel.text = @"Table is not assigned";
     
     [self.photoImageView setImageWithURL:[NSURL URLWithString:_personModel.photoURI] placeholderImage:[UIImage imageNamed:@"photoPlaceholder"]];
@@ -51,6 +70,19 @@
     if (_personModel.tableToken) {
         self.tableTokenLabel.text = _personModel.tableToken;
     }
+}
+
+- (void)logout
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"logout" object:self];
+}
+
+- (void)cancel
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+        NSLog(@"Did press cancel");
+    }];
 }
 
 - (IBAction)didPressChangeTableButton:(id)sender

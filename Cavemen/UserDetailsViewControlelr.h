@@ -13,6 +13,7 @@
 @interface UserDetailsViewControlelr : UIViewController
 
 @property (nonatomic, strong) PersonModel *personModel;
+@property (nonatomic, assign) BOOL personQuickLook;
 
 - (instancetype)initWithPersonModel:(PersonModel *)person;
 
