@@ -19,6 +19,7 @@
 		CD57B16518F972C200D0365D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD57B14D18F972C200D0365D /* UIKit.framework */; };
 		CD57B16D18F972C200D0365D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD57B16B18F972C200D0365D /* InfoPlist.strings */; };
 		CD57B16F18F972C200D0365D /* enBeaconTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CD57B16E18F972C200D0365D /* enBeaconTests.m */; };
+		CD8193AA18F9827000D7B9A9 /* ConfigViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8193A918F9827000D7B9A9 /* ConfigViewController.xib */; };
 		CDFF2D3818F9737400B63C8D /* ConfigViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDFF2D3718F9737400B63C8D /* ConfigViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		CD57B16A18F972C200D0365D /* enBeaconTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "enBeaconTests-Info.plist"; sourceTree = "<group>"; };
 		CD57B16C18F972C200D0365D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CD57B16E18F972C200D0365D /* enBeaconTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = enBeaconTests.m; sourceTree = "<group>"; };
+		CD8193A918F9827000D7B9A9 /* ConfigViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ConfigViewController.xib; sourceTree = "<group>"; };
 		CDFF2D3618F9737400B63C8D /* ConfigViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConfigViewController.h; sourceTree = "<group>"; };
 		CDFF2D3718F9737400B63C8D /* ConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConfigViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -112,6 +114,7 @@
 			children = (
 				CDFF2D3618F9737400B63C8D /* ConfigViewController.h */,
 				CDFF2D3718F9737400B63C8D /* ConfigViewController.m */,
+				CD8193A918F9827000D7B9A9 /* ConfigViewController.xib */,
 				CD57B15818F972C200D0365D /* AppDelegate.h */,
 				CD57B15918F972C200D0365D /* AppDelegate.m */,
 				CD57B15B18F972C200D0365D /* Images.xcassets */,
@@ -226,6 +229,7 @@
 			files = (
 				CD57B15418F972C200D0365D /* InfoPlist.strings in Resources */,
 				CD57B15C18F972C200D0365D /* Images.xcassets in Resources */,
+				CD8193AA18F9827000D7B9A9 /* ConfigViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

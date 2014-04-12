@@ -7,7 +7,6 @@
 //
 
 #import "ConfigViewController.h"
-#import "AppConstants.h"
 
 @interface ConfigViewController ()
 
@@ -34,17 +33,19 @@
     [self.view addSubview:projectButton];
 }
 
-- (void)initBeacon {
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:kEnTowerProximityUUID];
+- (void)initBeacon
+{
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"3AB1650D-20BD-4DCE-8AE2-B2B6D67FE109"];
+    
     self.beaconTableRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
                                                                 major:1
                                                                 minor:1
-                                                           identifier:kBeaconTableIdentifier];
+                                                                identifier:@"cavemen.beacon"];
     
     self.beaconProjectRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
                                                                        major:2
                                                                        minor:2
-                                                                  identifier:kBeaconProjectIdentifier];
+                                                                  identifier:@"cavemen.beacon"];
 }
 
 - (IBAction)transmitBeacon:(UIButton *)sender {
@@ -73,7 +74,8 @@
                                                                    options:nil];
 }
 
--(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral {
+-(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
+{
     if (peripheral.state == CBPeripheralManagerStatePoweredOn) {
         NSLog(@"Powered On");
         [self.peripheralManager startAdvertising:self.beaconPeripheralData];
