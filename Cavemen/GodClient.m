@@ -10,6 +10,7 @@
 #import "TableModel.h"
 #import "PersonModel.h"
 #import <Parse/Parse.h>
+#import "CurrentPerson.h"
 
 @implementation GodClient
 
@@ -82,7 +83,57 @@
 
 - (void)bookTableWithToken:(NSString *)tableToken successBlock:(void (^)())successBlock failureBlock:(void (^)(PersonModel *tableOwnerPerson))failureBlock {
 
-    
+    PFQuery *query = [PFQuery queryWithClassName:@"Person"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
+            // Do something with the found objects
+            
+            BOOL isTableFree = YES;
+            
+            CurrentPerson *currentPerson = [CurrentPerson sharedInstance];
+            PFObject      *currentPersonPFObject;
+            
+            for (PFObject *object in objects) {
+                
+                NSString *tToken = [object objectForKey:@"tableToken"];
+                
+                if ([tToken isEqualToString:tableToken]) {
+                    
+                    PersonModel *personModel = [[PersonModel alloc] init];
+                    personModel.firstName = [object objectForKey:@"fName"];
+                    personModel.lastName  = [object objectForKey:@"lName"];
+                    personModel.jobTitle  = [object objectForKey:@"jobTitle"];
+                    personModel.photoURI  = [object objectForKey:@"photoUri"];
+                    personModel.projects  = [object objectForKey:@"projects"];
+                    
+                    isTableFree = NO;
+                    
+                    failureBlock(personModel);
+                    break;
+                }
+                
+                NSString *personName = [object objectForKey:@"fName"];
+                
+                if ([personName isEqualToString:currentPerson.firstName]) {
+                
+                    currentPersonPFObject = object;
+                }
+            }
+            
+            if (isTableFree) {
+            
+                [currentPersonPFObject setObject:@"tableToken" forKey:@"tableToken"];
+                
+                successBlock();
+            }
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 @end

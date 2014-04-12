@@ -29,6 +29,7 @@
 		3B18E66D18F976E100367184 /* GodClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E66C18F976E100367184 /* GodClient.m */; };
 		3B18E67018F979E700367184 /* TableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E66F18F979E700367184 /* TableModel.m */; };
 		3B18E67318F9808900367184 /* PersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E67218F9808900367184 /* PersonModel.m */; };
+		3B18E67618F98E8E00367184 /* CurrentPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E67518F98E8E00367184 /* CurrentPerson.m */; };
 		3B6A693918F1CB8F00EBE271 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6A693818F1CB8F00EBE271 /* BaseVC.m */; };
 		3B6A693E18F1CBD800EBE271 /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6A693C18F1CBD800EBE271 /* MainVC.m */; };
 		3B6A693F18F1CBD800EBE271 /* MainVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6A693D18F1CBD800EBE271 /* MainVC.xib */; };
@@ -97,6 +98,8 @@
 		3B18E66F18F979E700367184 /* TableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableModel.m; sourceTree = "<group>"; };
 		3B18E67118F9808900367184 /* PersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonModel.h; sourceTree = "<group>"; };
 		3B18E67218F9808900367184 /* PersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonModel.m; sourceTree = "<group>"; };
+		3B18E67418F98E8E00367184 /* CurrentPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentPerson.h; sourceTree = "<group>"; };
+		3B18E67518F98E8E00367184 /* CurrentPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentPerson.m; sourceTree = "<group>"; };
 		3B6A693718F1CB8F00EBE271 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
 		3B6A693818F1CB8F00EBE271 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
 		3B6A693B18F1CBD800EBE271 /* MainVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
@@ -193,6 +196,8 @@
 				3B18E66F18F979E700367184 /* TableModel.m */,
 				3B18E67118F9808900367184 /* PersonModel.h */,
 				3B18E67218F9808900367184 /* PersonModel.m */,
+				3B18E67418F98E8E00367184 /* CurrentPerson.h */,
+				3B18E67518F98E8E00367184 /* CurrentPerson.m */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -539,6 +544,7 @@
 				3B18E5C718F4851E00367184 /* LeftMenuDataModel.m in Sources */,
 				3B18E66D18F976E100367184 /* GodClient.m in Sources */,
 				4FDB485718F845B000604AC5 /* QRCodeVC.m in Sources */,
+				3B18E67618F98E8E00367184 /* CurrentPerson.m in Sources */,
 				CD57B13B18F95A5B00D0365D /* LoginViewController.m in Sources */,
 				3B6A694718F1CC0A00EBE271 /* LeftMenuVC.m in Sources */,
 				4FDB485318F82C1D00604AC5 /* ENLocationManager.m in Sources */,
