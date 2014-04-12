@@ -18,7 +18,7 @@
     
     ConfigViewController *configVC = [[ConfigViewController alloc] init];
     
-    self.window.rootViewController = configVC;
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:configVC];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

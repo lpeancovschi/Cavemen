@@ -25,10 +25,9 @@
 		3B18E66718F973D900367184 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B18E66618F973D900367184 /* Social.framework */; };
 		3B18E66918F973DF00367184 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B18E66818F973DF00367184 /* Accounts.framework */; };
 		3B18E66D18F976E100367184 /* GodClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E66C18F976E100367184 /* GodClient.m */; };
-		3B18E67018F979E700367184 /* TableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E66F18F979E700367184 /* TableModel.m */; };
 		3B18E67318F9808900367184 /* PersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E67218F9808900367184 /* PersonModel.m */; };
 		3B18E67618F98E8E00367184 /* CurrentPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E67518F98E8E00367184 /* CurrentPerson.m */; };
-		3B6A693918F1CB8F00EBE271 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6A693818F1CB8F00EBE271 /* BaseVC.m */; };
+		3B6781DB18F9A9CF0069E23C /* TableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6781DA18F9A9CF0069E23C /* TableModel.m */; };
 		3B6A694718F1CC0A00EBE271 /* LeftMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6A694518F1CC0A00EBE271 /* LeftMenuVC.m */; };
 		3B6A694818F1CC0A00EBE271 /* LeftMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6A694618F1CC0A00EBE271 /* LeftMenuVC.xib */; };
 		44F8151C11E4407BB5121FEA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D097E7D1840C4578BE447906 /* libPods.a */; };
@@ -45,7 +44,6 @@
 		4FA13FEA18EEF90E009A660B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4FA13FE818EEF90E009A660B /* InfoPlist.strings */; };
 		4FA13FEC18EEF90E009A660B /* CavemenTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FA13FEB18EEF90E009A660B /* CavemenTests.m */; };
 		4FDB480C18F6A21600604AC5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB480B18F6A21600604AC5 /* CoreLocation.framework */; };
-		4FDB485318F82C1D00604AC5 /* ENLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB485218F82C1D00604AC5 /* ENLocationManager.m */; };
 		4FDB485718F845B000604AC5 /* QRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB485618F845B000604AC5 /* QRCodeVC.m */; };
 		CD57B13B18F95A5B00D0365D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD57B13918F95A5B00D0365D /* LoginViewController.m */; };
 		CD57B13C18F95A5B00D0365D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD57B13A18F95A5B00D0365D /* LoginViewController.xib */; };
@@ -53,6 +51,8 @@
 		CD8193A318F974E000D7B9A9 /* UserDetailsViewControlelr.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8193A118F974E000D7B9A9 /* UserDetailsViewControlelr.xib */; };
 		CD8193A718F97A2200D7B9A9 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8193A518F97A2200D7B9A9 /* ResultsViewController.m */; };
 		CD8193A818F97A2200D7B9A9 /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8193A618F97A2200D7B9A9 /* ResultsViewController.xib */; };
+		CD8FC11218F997EA001877C6 /* TempInfoViewControlelrViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8FC11018F997EA001877C6 /* TempInfoViewControlelrViewController.m */; };
+		CD8FC11318F997EA001877C6 /* TempInfoViewControlelrViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8FC11118F997EA001877C6 /* TempInfoViewControlelrViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,14 +88,12 @@
 		3B18E66818F973DF00367184 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		3B18E66B18F976E100367184 /* GodClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GodClient.h; sourceTree = "<group>"; };
 		3B18E66C18F976E100367184 /* GodClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GodClient.m; sourceTree = "<group>"; };
-		3B18E66E18F979E700367184 /* TableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableModel.h; sourceTree = "<group>"; };
-		3B18E66F18F979E700367184 /* TableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableModel.m; sourceTree = "<group>"; };
 		3B18E67118F9808900367184 /* PersonModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonModel.h; sourceTree = "<group>"; };
 		3B18E67218F9808900367184 /* PersonModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonModel.m; sourceTree = "<group>"; };
 		3B18E67418F98E8E00367184 /* CurrentPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentPerson.h; sourceTree = "<group>"; };
 		3B18E67518F98E8E00367184 /* CurrentPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentPerson.m; sourceTree = "<group>"; };
-		3B6A693718F1CB8F00EBE271 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
-		3B6A693818F1CB8F00EBE271 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
+		3B6781D918F9A9CF0069E23C /* TableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableModel.h; sourceTree = "<group>"; };
+		3B6781DA18F9A9CF0069E23C /* TableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableModel.m; sourceTree = "<group>"; };
 		3B6A694418F1CC0A00EBE271 /* LeftMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuVC.h; sourceTree = "<group>"; };
 		3B6A694518F1CC0A00EBE271 /* LeftMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuVC.m; sourceTree = "<group>"; };
 		3B6A694618F1CC0A00EBE271 /* LeftMenuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuVC.xib; sourceTree = "<group>"; };
@@ -116,8 +114,6 @@
 		4FA13FE918EEF90E009A660B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4FA13FEB18EEF90E009A660B /* CavemenTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CavemenTests.m; sourceTree = "<group>"; };
 		4FDB480B18F6A21600604AC5 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		4FDB485118F82C1D00604AC5 /* ENLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ENLocationManager.h; sourceTree = "<group>"; };
-		4FDB485218F82C1D00604AC5 /* ENLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENLocationManager.m; sourceTree = "<group>"; };
 		4FDB485518F845B000604AC5 /* QRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeVC.h; sourceTree = "<group>"; };
 		4FDB485618F845B000604AC5 /* QRCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeVC.m; sourceTree = "<group>"; };
 		82A7006D697446A298593137 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
@@ -130,6 +126,9 @@
 		CD8193A418F97A2200D7B9A9 /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
 		CD8193A518F97A2200D7B9A9 /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
 		CD8193A618F97A2200D7B9A9 /* ResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
+		CD8FC10F18F997EA001877C6 /* TempInfoViewControlelrViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempInfoViewControlelrViewController.h; sourceTree = "<group>"; };
+		CD8FC11018F997EA001877C6 /* TempInfoViewControlelrViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempInfoViewControlelrViewController.m; sourceTree = "<group>"; };
+		CD8FC11118F997EA001877C6 /* TempInfoViewControlelrViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TempInfoViewControlelrViewController.xib; sourceTree = "<group>"; };
 		D097E7D1840C4578BE447906 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -175,9 +174,9 @@
 		3B18E5C418F4850000367184 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
+				3B6781D918F9A9CF0069E23C /* TableModel.h */,
+				3B6781DA18F9A9CF0069E23C /* TableModel.m */,
 				3B18E5CB18F4853700367184 /* Left Menu */,
-				3B18E66E18F979E700367184 /* TableModel.h */,
-				3B18E66F18F979E700367184 /* TableModel.m */,
 				3B18E67118F9808900367184 /* PersonModel.h */,
 				3B18E67218F9808900367184 /* PersonModel.m */,
 				3B18E67418F98E8E00367184 /* CurrentPerson.h */,
@@ -209,9 +208,9 @@
 		3B6A693518F1CB6900EBE271 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				4FDB485418F8459100604AC5 /* QR Code VC */,
 				3B6A694018F1CBDE00EBE271 /* LeftMenuVC */,
-				3B6A693618F1CB7300EBE271 /* Base VC */,
+				4FDB485518F845B000604AC5 /* QRCodeVC.h */,
+				4FDB485618F845B000604AC5 /* QRCodeVC.m */,
 				3B18E5BD18F47E5300367184 /* DiscoverVC.h */,
 				3B18E5BE18F47E5300367184 /* DiscoverVC.m */,
 				3B18E5BF18F47E5300367184 /* DiscoverVC.xib */,
@@ -224,17 +223,11 @@
 				CD8193A418F97A2200D7B9A9 /* ResultsViewController.h */,
 				CD8193A518F97A2200D7B9A9 /* ResultsViewController.m */,
 				CD8193A618F97A2200D7B9A9 /* ResultsViewController.xib */,
+				CD8FC10F18F997EA001877C6 /* TempInfoViewControlelrViewController.h */,
+				CD8FC11018F997EA001877C6 /* TempInfoViewControlelrViewController.m */,
+				CD8FC11118F997EA001877C6 /* TempInfoViewControlelrViewController.xib */,
 			);
 			name = "View Controllers";
-			sourceTree = "<group>";
-		};
-		3B6A693618F1CB7300EBE271 /* Base VC */ = {
-			isa = PBXGroup;
-			children = (
-				3B6A693718F1CB8F00EBE271 /* BaseVC.h */,
-				3B6A693818F1CB8F00EBE271 /* BaseVC.m */,
-			);
-			name = "Base VC";
 			sourceTree = "<group>";
 		};
 		3B6A694018F1CBDE00EBE271 /* LeftMenuVC */ = {
@@ -297,7 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				3B18E66A18F976BC00367184 /* RestClient */,
-				4FDB485018F82C0400604AC5 /* ENLocationManager */,
 				3B18E5C418F4850000367184 /* Data Model */,
 				3B6A693518F1CB6900EBE271 /* View Controllers */,
 				4FA13FD518EEF90D009A660B /* AppDelegate.h */,
@@ -335,24 +327,6 @@
 				4FA13FE818EEF90E009A660B /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4FDB485018F82C0400604AC5 /* ENLocationManager */ = {
-			isa = PBXGroup;
-			children = (
-				4FDB485118F82C1D00604AC5 /* ENLocationManager.h */,
-				4FDB485218F82C1D00604AC5 /* ENLocationManager.m */,
-			);
-			name = ENLocationManager;
-			sourceTree = "<group>";
-		};
-		4FDB485418F8459100604AC5 /* QR Code VC */ = {
-			isa = PBXGroup;
-			children = (
-				4FDB485518F845B000604AC5 /* QRCodeVC.h */,
-				4FDB485618F845B000604AC5 /* QRCodeVC.m */,
-			);
-			name = "QR Code VC";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B6A694818F1CC0A00EBE271 /* LeftMenuVC.xib in Resources */,
+				CD8FC11318F997EA001877C6 /* TempInfoViewControlelrViewController.xib in Resources */,
 				3B18E5C118F47E5300367184 /* DiscoverVC.xib in Resources */,
 				CD8193A318F974E000D7B9A9 /* UserDetailsViewControlelr.xib in Resources */,
 				CD8193A818F97A2200D7B9A9 /* ResultsViewController.xib in Resources */,
@@ -490,11 +465,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B18E67018F979E700367184 /* TableModel.m in Sources */,
 				CD8193A718F97A2200D7B9A9 /* ResultsViewController.m in Sources */,
 				3B18E5CA18F4853300367184 /* LeftMenuItem.m in Sources */,
 				CD8193A218F974E000D7B9A9 /* UserDetailsViewControlelr.m in Sources */,
-				3B6A693918F1CB8F00EBE271 /* BaseVC.m in Sources */,
+				3B6781DB18F9A9CF0069E23C /* TableModel.m in Sources */,
 				4FA13FD718EEF90D009A660B /* AppDelegate.m in Sources */,
 				4FA13FD318EEF90D009A660B /* main.m in Sources */,
 				3B18E67318F9808900367184 /* PersonModel.m in Sources */,
@@ -504,8 +478,8 @@
 				3B18E67618F98E8E00367184 /* CurrentPerson.m in Sources */,
 				CD57B13B18F95A5B00D0365D /* LoginViewController.m in Sources */,
 				3B6A694718F1CC0A00EBE271 /* LeftMenuVC.m in Sources */,
-				4FDB485318F82C1D00604AC5 /* ENLocationManager.m in Sources */,
 				3B18E5C018F47E5300367184 /* DiscoverVC.m in Sources */,
+				CD8FC11218F997EA001877C6 /* TempInfoViewControlelrViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,12 +12,12 @@
 
 @interface ConfigViewController : UIViewController <CBPeripheralManagerDelegate>
 
-@property (strong, nonatomic) CLBeaconRegion *beaconTableRegion;
-@property (strong, nonatomic) CLBeaconRegion *beaconProjectRegion;
-@property (weak, nonatomic) IBOutlet UILabel *uuidLabel;
-@property (weak, nonatomic) IBOutlet UILabel *majorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *minorLabel;
-@property (weak, nonatomic) IBOutlet UILabel *identityLabel;
+@property (strong, nonatomic) CLBeaconRegion *beaconTableRegion1;
+@property (strong, nonatomic) CLBeaconRegion *beaconTableRegion2;
+
+@property (strong, nonatomic) CLBeaconRegion *beaconProjectRegion1;
+@property (strong, nonatomic) CLBeaconRegion *beaconProjectRegion2;
+
 @property (strong, nonatomic) NSDictionary *beaconPeripheralData;
 @property (strong, nonatomic) CBPeripheralManager *peripheralManager;
 

@@ -7,6 +7,7 @@
 //
 
 #import "UserDetailsViewControlelr.h"
+#import "DiscoverVC.h"
 
 @interface UserDetailsViewControlelr ()
 
@@ -34,6 +35,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction)didPressChangeTableButton:(id)sender
+{
+    DiscoverVC *discoveryVC = [[DiscoverVC alloc] init];
+    
+    [self presentViewController:discoveryVC animated:YES completion:^{
+        
+    }];
 }
 
 @end

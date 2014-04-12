@@ -15,6 +15,10 @@
 #import "PersonModel.h"
 #import "LoginViewController.h"
 #import "UserDetailsViewControlelr.h"
+#import <Parse/Parse.h>
+#import "GodClient.h"
+#import "TableModel.h"
+#import "PersonModel.h"
 
 @interface AppDelegate () <LoginViewControllerDelegate>
 
@@ -43,26 +47,7 @@
     self.drawer = [[MMDrawerController alloc] initWithCenterViewController:centerNav leftDrawerViewController:leftMenu];
     [self.drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [self.drawer setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
-    
-//    PFObject *testObject = [PFObject objectWithClassName:@"Table"];
-//    testObject[@"token"] = @"123";
-//    [testObject saveInBackground];
-    
-//    PFQuery *query = [PFQuery queryWithClassName:@"DU"];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        if (!error) {
-//            // The find succeeded.
-//            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
-//            // Do something with the found objects
-//            for (PFObject *object in objects) {
-//                NSLog(@"%@", [object objectForKey:@"name"]);
-//            }
-//        } else {
-//            // Log details of the failure
-//            NSLog(@"Error: %@ %@", error, [error userInfo]);
-//        }
-//    }];
-    
+
     GodClient *godClient = [[GodClient alloc] init];
     [godClient getTableWithToken:@"1" successBlock:^(TableModel *tableModel) {
     

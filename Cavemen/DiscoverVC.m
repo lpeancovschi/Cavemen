@@ -7,6 +7,7 @@
 //
 
 #import "DiscoverVC.h"
+#import "TempInfoViewControlelrViewController.h"
 
 #define BEACON_IDENTIFIER_TABLE     @"cavemen.beacon"
 
@@ -26,7 +27,7 @@
 {
     [super viewDidLoad];
 
-    
+    self.title = @"Identify table";
 }
 
 - (void)startBeaconsDiscovery
@@ -44,6 +45,11 @@
     [self locationManager:_locationManager didStartMonitoringForRegion:_beaconRegionEndavaDUTable];
 }
 
+- (void)stopBeaconMonitoring
+{
+    [_locationManager stopMonitoringForRegion:_beaconRegionEndavaDUTable];
+}
+
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region
@@ -59,12 +65,16 @@
 
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
-    NSLog(@"Region type: %@", region.identifier);
-    
     if ([beacons count] > 0) {
-        
+                
         CLBeacon *nearestExhibit = [beacons firstObject];
-        NSLog(@"Did range beacon. Accuracy = %f meters, rssi: %d, major: %@, minor: %@", nearestExhibit.accuracy, nearestExhibit.rssi, nearestExhibit.major, nearestExhibit.minor);
+        NSLog(@"Did range beacon. Accuracy = %f meters, rssi: %li, major: %@, minor: %@", nearestExhibit.accuracy, nearestExhibit.rssi, nearestExhibit.major, nearestExhibit.minor);
+        
+        if (([nearestExhibit.major isEqual: @1]) && ([nearestExhibit.minor  isEqual:@1]) && nearestExhibit.proximity == CLProximityImmediate) {
+            [self.presentedViewController dismissViewControllerAnimated:YES completion:^{
+                
+            }];
+        }
     }
 }
 
@@ -77,6 +87,18 @@
 - (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region
 {
     NSLog(@"Did determine state for region");
+}
+
+#pragma mark - IBActions
+
+- (IBAction)didPressScanBeacon:(id)sender
+{
+    TempInfoViewControlelrViewController *tempInfoVC = [[TempInfoViewControlelrViewController alloc] init];
+    
+    [self presentViewController:tempInfoVC animated:YES completion:^{
+        
+        [self startBeaconsDiscovery];
+    }];
 }
 
 @end
