@@ -209,25 +209,17 @@
     
     if (code.length <= 4) {
         
-        [[GodClient sharedInstance] getTableWithToken:code successBlock:^(TableModel *tableModel) {
+        [[GodClient sharedInstance] bookTableWithToken:code successBlock:^{
             
-            [[GodClient sharedInstance] bookTableWithToken:code successBlock:^{
-                
-                UserDetailsViewControlelr *userDetails = [[UserDetailsViewControlelr alloc] initWithPersonModel:[CurrentPerson sharedInstance]];
-                userDetails.personQuickLook = YES;
-                [self presentViewController:[[UINavigationController alloc] initWithRootViewController:userDetails] animated:YES completion:nil];
-                
-            } failureBlock:^(PersonModel *tableOwnerPerson) {
-                
-                UserDetailsViewControlelr *userDetails = [[UserDetailsViewControlelr alloc] initWithPersonModel:tableOwnerPerson];
-                userDetails.personQuickLook = YES;
-                [self presentViewController:[[UINavigationController alloc] initWithRootViewController:userDetails] animated:YES completion:nil];
-            }];
+            UserDetailsViewControlelr *userDetails = [[UserDetailsViewControlelr alloc] initWithPersonModel:[CurrentPerson sharedInstance]];
+            userDetails.personQuickLook = YES;
+            [self presentViewController:[[UINavigationController alloc] initWithRootViewController:userDetails] animated:YES completion:nil];
             
-        } failureBlock:^(NSString *errroMsg) {
+        } failureBlock:^(PersonModel *tableOwnerPerson) {
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:errroMsg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
+            UserDetailsViewControlelr *userDetails = [[UserDetailsViewControlelr alloc] initWithPersonModel:tableOwnerPerson];
+            userDetails.personQuickLook = YES;
+            [self presentViewController:[[UINavigationController alloc] initWithRootViewController:userDetails] animated:YES completion:nil];
         }];
     }
 }
