@@ -25,7 +25,7 @@
 @interface AppDelegate () <LoginViewControllerDelegate>
 
 @property (nonatomic) MMDrawerController *drawer;
-@property (nonatomic) LoginViewController *loginVC;
+@property (nonatomic) UINavigationController *loginVC;
 
 @end
 
@@ -46,8 +46,10 @@
     _myProfileVC = [[UserDetailsViewControlelr  alloc] init];
     UINavigationController *centerNav = [[UINavigationController alloc] initWithRootViewController:_myProfileVC];
     
-    self.loginVC = [[LoginViewController alloc] init];
-    self.loginVC.delegate = self;
+    LoginViewController *loginVC = [[LoginViewController alloc] init];
+    loginVC.delegate = self;
+    
+    self.loginVC = [[UINavigationController alloc] initWithRootViewController:loginVC];
     
     self.drawer = [[MMDrawerController alloc] initWithCenterViewController:centerNav leftDrawerViewController:leftMenu];
     [self.drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
@@ -83,7 +85,7 @@
 //        
 //    }];
     
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.loginVC];
+    self.window.rootViewController = self.loginVC;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     

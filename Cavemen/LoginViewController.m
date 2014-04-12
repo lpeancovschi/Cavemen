@@ -88,12 +88,20 @@
 
 - (IBAction)didPressLoginButton:(id)sender
 {
+    [self.usernameTextField resignFirstResponder];
+    [self.passwordTextField resignFirstResponder];
+    
+    if (!self.usernameTextField.text.length || !self.passwordTextField.text.length) {
+        [self showAlert];
+        return;
+    }
+    
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Loading...";
     
     GodClient *godClient = [GodClient sharedInstance];
     
-    [godClient getPersonWithFirstName:self.usernameTextField.text successBlock:^(PersonModel *personModel){
+    [godClient getPersonWithUsername:self.usernameTextField.text.lowercaseString successBlock:^(PersonModel *personModel){
     
         CurrentPerson *currentPerson = [CurrentPerson sharedInstance];
         
@@ -119,11 +127,25 @@
         if ([self.delegate respondsToSelector:@selector(didLoginWithUsername:)]) {
             [self.delegate didLoginWithUsername:self.usernameTextField.text];
         }
+        
     } failureBlock:^(NSString *errorMsg){
+        
+        [self showAlert];
         
         NSLog(@"%@", errorMsg);
         [hud hide:YES];
     }];
+}
+
+- (void)showAlert
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cavemen"
+                                                    message:@"Invalid username or password"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil, nil];
+    
+    [alert show];
 }
 
 #pragma mark - Keyboard Callbacks

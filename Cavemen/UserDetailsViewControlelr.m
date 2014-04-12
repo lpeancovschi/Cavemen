@@ -11,6 +11,7 @@
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "PersonModel.h"
 #import "CurrentPerson.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface UserDetailsViewControlelr ()
 
@@ -70,8 +71,20 @@
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", _personModel.firstName, _personModel.lastName];
     self.jobTitleLable.text = _personModel.jobTitle;
     
-    if (_personModel.tableToken) {
-        self.tableTokenLabel.text = _personModel.tableToken;
+    if (_personModel.tableToken.length) {
+        
+        NSString *token = _personModel.tableToken;
+        if ([token isEqualToString:@"10"]) {
+            token = @"1234";
+        } else if ([token isEqualToString:@"15"]) {
+            token = @"4321";
+        }
+        
+        self.tableTokenLabel.text = [NSString stringWithFormat:@"Personal table ID %@", token];
+    }
+    else {
+        
+        self.tableTokenLabel.text = @"No table assigned";
     }
     
     NSLog(@"%@", self.nameLabel.text);

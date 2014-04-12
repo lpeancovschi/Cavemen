@@ -72,7 +72,7 @@
     }];
 }
 
-- (void)getPersonWithFirstName:(NSString *)firstName successBlock:(void (^)(PersonModel *personModel))successBlock failureBlock:(void (^)(NSString *errorMsg))failureBlock {
+- (void)getPersonWithUsername:(NSString *)firstName successBlock:(void (^)(PersonModel *personModel))successBlock failureBlock:(void (^)(NSString *errorMsg))failureBlock {
 
     PFQuery *query = [PFQuery queryWithClassName:@"Person"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -85,12 +85,12 @@
             
             for (PFObject *object in objects) {
                 
-                NSString *fName = [object objectForKey:@"fName"];
+                NSString *login = [object objectForKey:@"login"];
                 
-                if ([firstName isEqualToString:fName]) {
+                if ([firstName isEqualToString:login]) {
                     
                     PersonModel *personModel = [[PersonModel alloc] init];
-                    personModel.firstName = fName;
+                    personModel.firstName = [object objectForKey:@"fName"];
                     personModel.lastName = [object objectForKey:@"lName"];
                     personModel.jobTitle = [object objectForKey:@"jobTitle"];
                     personModel.photoURI = [object objectForKey:@"photoUri"];
