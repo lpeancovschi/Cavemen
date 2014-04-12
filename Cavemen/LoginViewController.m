@@ -91,7 +91,7 @@
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Loading...";
     
-    GodClient *godClient = [[GodClient alloc] init];
+    GodClient *godClient = [GodClient sharedInstance];
     
     [godClient getPersonWithFirstName:self.usernameTextField.text successBlock:^(PersonModel *personModel){
     

@@ -52,12 +52,13 @@
     [self.drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [self.drawer setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
 
-    GodClient *godClient = [[GodClient alloc] init];
-    [godClient getTableWithToken:@"10" successBlock:^(TableModel *tableModel) {
+    GodClient *godClient = [GodClient sharedInstance];
+    [godClient getTableWithToken:@"1" successBlock:^(TableModel *tableModel) {
     
         NSLog(@"table.token = %@", tableModel.tableToken);
         NSLog(@"table.status = %lu", tableModel.tableStatus);
         NSLog(@"table.employees.count = %lu", (unsigned long)tableModel.employeesArray.count);
+        
     } failureBlock:^(NSString *errorMsg){
     
         NSLog(@"%@", errorMsg);

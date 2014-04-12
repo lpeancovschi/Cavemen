@@ -18,6 +18,17 @@
 
 @implementation GodClient
 
++ (instancetype)sharedInstance {
+    
+    static dispatch_once_t once;
+    static id sharedInstance;
+    dispatch_once(&once, ^ {
+        sharedInstance = [[self alloc] init];
+    });
+    
+    return sharedInstance;
+}
+
 - (void)getTableWithToken:(NSString *)tableToken successBlock:(void (^)(TableModel *tableModel))successBlock failureBlock:(void (^)(NSString *errroMsg))failureBlock {
     
     PFQuery *query = [PFQuery queryWithClassName:@"Table"];
