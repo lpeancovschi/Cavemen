@@ -169,8 +169,11 @@
                         [currentPersonPFObject setObject:tableToken forKey:@"tableToken"];
                         [currentPersonPFObject saveInBackground];
                         
+                        currentPerson.tableToken = tableToken;
+                        
                         successBlock();
                     } failureBlock:^(){
+                        ;
                     }];
                 } else {
                 
@@ -178,6 +181,8 @@
                     
                     [currentPersonPFObject setObject:tableToken forKey:@"tableToken"];
                     [currentPersonPFObject saveInBackground];
+                    
+                    currentPerson.tableToken = tableToken;
                     
                     successBlock();
                 }
