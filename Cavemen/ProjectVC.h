@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProjectVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@class ProjectModel;
+
+@interface ProjectVC : UIViewController
+
+@property (nonatomic, strong) ProjectModel *projectModel;
 
 @end

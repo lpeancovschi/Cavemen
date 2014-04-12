@@ -142,6 +142,7 @@
                     personModel.jobTitle  = [object objectForKey:@"jobTitle"];
                     personModel.photoURI  = [object objectForKey:@"photoUri"];
                     personModel.projects  = [object objectForKey:@"projects"];
+                    personModel.tableToken = [object objectForKey:@"tableToken"];
                     
                     isTableFree = NO;
                     
@@ -159,7 +160,19 @@
             
             if (isTableFree) {
                 
-                [self unsubscribeFromCurrentWithSuccessBlock:^(){
+                if (currentPerson.tableToken.length > 0) {
+                
+                    [self unsubscribeFromCurrentWithSuccessBlock:^(){
+                    
+                        [self changeTableStatus:tableToken status:TABLE_BOOKED];
+                        
+                        [currentPersonPFObject setObject:tableToken forKey:@"tableToken"];
+                        [currentPersonPFObject saveInBackground];
+                        
+                        successBlock();
+                    } failureBlock:^(){
+                    }];
+                } else {
                 
                     [self changeTableStatus:tableToken status:TABLE_BOOKED];
                     
@@ -167,9 +180,8 @@
                     [currentPersonPFObject saveInBackground];
                     
                     successBlock();
-                } failureBlock:^(){
-                }];
-            } 
+                }
+            }
             
         } else {
             // Log details of the failure
