@@ -62,8 +62,6 @@
     }
     
     self.tableTokenLabel.text = @"Table is not assigned";
-    
-    [self updateUI];
 }
 
 - (void)updateUI {
@@ -75,14 +73,13 @@
     if (_personModel.tableToken) {
         self.tableTokenLabel.text = _personModel.tableToken;
     }
+    
+    NSLog(@"%@", self.nameLabel.text);
 }
 
-- (void)setPersonModel:(PersonModel *)personModel {
+- (void)viewWillAppear:(BOOL)animated {
 
-    if (_personModel != personModel) {
-    
-        _personModel = personModel;
-    }
+    [super viewWillAppear:animated];
     
     [self updateUI];
 }

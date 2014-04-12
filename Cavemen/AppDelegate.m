@@ -20,6 +20,7 @@
 #import "TableModel.h"
 #import "PersonModel.h"
 #import "CurrentPerson.h"
+#import "ProjectModel.h"
 
 @interface AppDelegate () <LoginViewControllerDelegate>
 
@@ -55,23 +56,31 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logOut) name:@"logout" object:nil];
     
     GodClient *godClient = [GodClient sharedInstance];
-    [godClient getTableWithToken:@"1" successBlock:^(TableModel *tableModel) {
+//    [godClient getTableWithToken:@"1" successBlock:^(TableModel *tableModel) {
+//    
+//        NSLog(@"table.token = %@", tableModel.tableToken);
+//        NSLog(@"table.status = %lu", tableModel.tableStatus);
+//        NSLog(@"table.employees.count = %lu", (unsigned long)tableModel.employeesArray.count);
+//        
+//    } failureBlock:^(NSString *errorMsg){
+//    
+//        NSLog(@"%@", errorMsg);
+//    }];
+//    
+//    [godClient getPersonWithFirstName:@"Leonid" successBlock:^(PersonModel *personModel) {
+//        
+//        NSLog(@"personModel.fName = %@", personModel.firstName);
+//        NSLog(@"personModel.lastName = %@", personModel.lastName);
+//        NSLog(@"person.jobTitle = %@", personModel.jobTitle);
+//    } failureBlock:^(NSString *errorMsg){}];
     
-        NSLog(@"table.token = %@", tableModel.tableToken);
-        NSLog(@"table.status = %lu", tableModel.tableStatus);
-        NSLog(@"table.employees.count = %lu", (unsigned long)tableModel.employeesArray.count);
+    [godClient getProjectForToken:@"1" success:^(ProjectModel *projectModel){
+    
         
     } failureBlock:^(NSString *errorMsg){
     
-        NSLog(@"%@", errorMsg);
-    }];
-    
-    [godClient getPersonWithFirstName:@"Leonid" successBlock:^(PersonModel *personModel) {
         
-        NSLog(@"personModel.fName = %@", personModel.firstName);
-        NSLog(@"personModel.lastName = %@", personModel.lastName);
-        NSLog(@"person.jobTitle = %@", personModel.jobTitle);
-    } failureBlock:^(NSString *errorMsg){}];
+    }];
     
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.loginVC];
     self.window.backgroundColor = [UIColor whiteColor];

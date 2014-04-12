@@ -291,6 +291,7 @@
                     projectModel.projectTitle = [object objectForKey:@"title"];
                     projectModel.projectIconUri = [object objectForKey:@"logoUri"];
                     projectModel.projectPersons = [object objectForKey:@"team"];
+                    projectModel.projectDescription = [object objectForKey:@"description"];
                     
                     projectExists = YES;
                     

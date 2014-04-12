@@ -13,5 +13,6 @@
 @property (nonatomic, strong) NSString *projectTitle;
 @property (nonatomic, strong) NSString *projectIconUri;
 @property (nonatomic, strong) NSArray *projectPersons;
+@property (nonatomic, strong) NSString *projectDescription;
 
 @end
