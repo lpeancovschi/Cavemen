@@ -129,6 +129,8 @@
 {
     [[GodClient sharedInstance] unsubscribeFromCurrentWithSuccessBlock:^{
         
+        self.tableTokenLabel.text = @"Table is not assigned";
+        
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cavemen"
                                                             message:@"You have successfully freed your current table"
                                                            delegate:self
