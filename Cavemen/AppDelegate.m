@@ -10,12 +10,19 @@
 #import <MMDrawerController/MMDrawerController.h>
 #import "LeftMenuVC.h"
 #import "ConfigViewController.h"
+#import <Parse/Parse.h>
+#import "GodClient.h"
+#import "TableModel.h"
+#import "PersonModel.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    [Parse setApplicationId:@"X7woT6Y1lWzo9LWvVGTLalqEyHueHiz10XP5iwaa"
+                  clientKey:@"2nDd05km9XcNmHZShR7GZNOkpgOsOFs7CVwk7LGe"];
 
     LeftMenuVC *leftMenu = [[LeftMenuVC alloc] init];
     
@@ -25,6 +32,40 @@
     MMDrawerController *drawer = [[MMDrawerController alloc] initWithCenterViewController:centerNav leftDrawerViewController:leftMenu];
     [drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [drawer setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    
+//    PFObject *testObject = [PFObject objectWithClassName:@"Table"];
+//    testObject[@"token"] = @"123";
+//    [testObject saveInBackground];
+    
+//    PFQuery *query = [PFQuery queryWithClassName:@"DU"];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            // The find succeeded.
+//            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
+//            // Do something with the found objects
+//            for (PFObject *object in objects) {
+//                NSLog(@"%@", [object objectForKey:@"name"]);
+//            }
+//        } else {
+//            // Log details of the failure
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//        }
+//    }];
+    
+    GodClient *godClient = [[GodClient alloc] init];
+    [godClient getTableWithToken:@"123" successBlock:^(TableModel *tableModel) {
+    
+        NSLog(@"table.token = %@", tableModel.tableToken);
+        NSLog(@"table.status = %lu", tableModel.tableStatus);
+        NSLog(@"table.employees.count = %lu", (unsigned long)tableModel.employeesArray.count);
+    }];
+    
+    [godClient getPersonWithFirstName:@"Leonid" successBlock:^(PersonModel *personModel) {
+        
+        NSLog(@"personModel.fName = %@", personModel.firstName);
+        NSLog(@"personModel.lastName = %@", personModel.lastName);
+        NSLog(@"person.jobTitle = %@", personModel.jobTitle);
+    }];
     
     self.window.rootViewController = drawer;
     self.window.backgroundColor    = [UIColor whiteColor];
