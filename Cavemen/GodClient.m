@@ -147,6 +147,8 @@
             
             if (isTableFree) {
                 
+                [self unsubscribeFromCurrentWithSuccessBlock:^(){} failureBlock:^(){}];
+                
                 [self changeTableStatus:tableToken status:TABLE_BOOKED];
             
                 [currentPersonPFObject setObject:tableToken forKey:@"tableToken"];
