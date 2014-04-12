@@ -155,4 +155,34 @@
     }];
 }
 
+- (void)unsubscribeFromCurrentWithSuccessBlock:(void (^)())successBlock failureBlock:(void (^)())failureBlock {
+
+    PFQuery *query = [PFQuery queryWithClassName:@"Person"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            
+            CurrentPerson *currentPerson = [CurrentPerson sharedInstance];
+            
+            for (PFObject *object in objects) {
+                
+                NSString *tToken = [object objectForKey:@"tableToken"];
+                
+                if ([tToken isEqualToString:currentPerson.tableToken]) {
+                    
+                    // remove urrent table token
+                    [object setObject:@"" forKey:@"tableToken"];
+                    [object saveInBackground];
+                    
+                    successBlock();
+                    break;
+                }
+            }
+        } else {
+            // Log details of the failure
+            failureBlock();
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
 @end

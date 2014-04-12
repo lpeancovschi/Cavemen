@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class PersonModel;
+
 @interface UserDetailsViewControlelr : UIViewController
+
+@property (nonatomic, strong) PersonModel *personModel;
+
+- (instancetype)initWithPersonModel:(PersonModel *)person;
 
 @end

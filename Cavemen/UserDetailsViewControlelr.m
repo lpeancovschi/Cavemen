@@ -8,35 +8,39 @@
 
 #import "UserDetailsViewControlelr.h"
 #import "DiscoverVC.h"
+#import <AFNetworking/UIImageView+AFNetworking.h>
+#import "PersonModel.h"
 
 @interface UserDetailsViewControlelr ()
+
+@property (nonatomic, weak) IBOutlet UIImageView *photoImageView;
+@property (nonatomic, weak) IBOutlet UILabel *nameLabel;
+@property (nonatomic, weak) IBOutlet UILabel *jobTitleLable;
+@property (nonatomic, weak) IBOutlet UILabel *tableTokenLabel;
 
 @end
 
 @implementation UserDetailsViewControlelr
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        
-        self.title = @"My Profile";
+- (instancetype)initWithPersonModel:(PersonModel *)person {
+
+    if (self = [super init]) {
+    
+        _personModel = person;
     }
+    
     return self;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    [self.photoImageView setImageWithURL:[NSURL URLWithString:_personModel.photoURI] placeholderImage:[UIImage imageNamed:@"photoPlaceholder"]];
+    self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", _personModel.firstName, _personModel.lastName];
+    self.jobTitleLable.text = _personModel.jobTitle;
+    self.tableTokenLabel.text = _personModel.tableToken;
 }
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 - (IBAction)didPressChangeTableButton:(id)sender
 {

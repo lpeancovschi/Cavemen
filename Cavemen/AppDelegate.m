@@ -19,6 +19,7 @@
 #import "GodClient.h"
 #import "TableModel.h"
 #import "PersonModel.h"
+#import "CurrentPerson.h"
 
 @interface AppDelegate () <LoginViewControllerDelegate>
 
@@ -27,7 +28,10 @@
 
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate {
+
+    UserDetailsViewControlelr *_myProfileVC;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -38,8 +42,8 @@
 
     LeftMenuVC *leftMenu = [[LeftMenuVC alloc] init];
     
-    UserDetailsViewControlelr *myProfileVC = [[UserDetailsViewControlelr  alloc] init];
-    UINavigationController *centerNav = [[UINavigationController alloc] initWithRootViewController:myProfileVC];
+    _myProfileVC = [[UserDetailsViewControlelr  alloc] init];
+    UINavigationController *centerNav = [[UINavigationController alloc] initWithRootViewController:_myProfileVC];
     
     self.loginVC = [[LoginViewController alloc] init];
     self.loginVC.delegate = self;
@@ -73,6 +77,8 @@
 - (void)didLoginWithUsername:(NSString *)username
 {
     NSLog(@"Username %@", username);
+    
+    _myProfileVC.personModel = [CurrentPerson sharedInstance];
     
     [UIView transitionFromView:self.window.rootViewController.view
                         toView:self.drawer.view
