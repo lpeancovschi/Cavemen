@@ -14,7 +14,7 @@
 
 @implementation GodClient
 
-- (void)getTableWithToken:(NSString *)tableToken successBlock:(void (^)(TableModel *tableModel))successBlock {
+- (void)getTableWithToken:(NSString *)tableToken successBlock:(void (^)(TableModel *tableModel))successBlock failureBlock:(void (^)(NSString *errroMsg))failureBlock {
 
     PFQuery *query = [PFQuery queryWithClassName:@"Table"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -23,8 +23,9 @@
             NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
             // Do something with the found objects
             
+            BOOL tableExists = NO;
+            
             for (PFObject *object in objects) {
-                NSLog(@"%@", [object objectForKey:@"name"]);
                 
                 NSString *token = [object objectForKey:@"token"];
                 
@@ -35,11 +36,19 @@
                     tableModel.tableStatus = [[object objectForKey:@"status"] intValue];
                     tableModel.employeesArray = [object objectForKey:@"employees"];
                     
+                    tableExists = YES;
+                    
                     successBlock(tableModel);
                     break;
                 }
                 
             }
+            
+            if (!tableExists) {
+            
+                failureBlock(@"There is no such table");
+            }
+            
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -47,7 +56,7 @@
     }];
 }
 
-- (void)getPersonWithFirstName:(NSString *)firstName successBlock:(void (^)(PersonModel *personModel))successBlock {
+- (void)getPersonWithFirstName:(NSString *)firstName successBlock:(void (^)(PersonModel *personModel))successBlock failureBlock:(void (^)(NSString *errorMsg))failureBlock {
 
     PFQuery *query = [PFQuery queryWithClassName:@"Person"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -55,6 +64,8 @@
             // The find succeeded.
             NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
             // Do something with the found objects
+            
+            BOOL userExists = NO;
             
             for (PFObject *object in objects) {
                 
@@ -69,11 +80,18 @@
                     personModel.photoURI = [object objectForKey:@"photoUri"];
                     personModel.projects = [object objectForKey:@"projects"];
                     
+                    userExists = YES;
+                    
                     successBlock(personModel);
                     break;
                 }
-                
             }
+            
+            if (!userExists) {
+            
+                failureBlock(@"Invalid user name");
+            }
+            
         } else {
             // Log details of the failure
             NSLog(@"Error: %@ %@", error, [error userInfo]);
@@ -124,10 +142,11 @@
             
             if (isTableFree) {
             
-                [currentPersonPFObject setObject:@"tableToken" forKey:@"tableToken"];
+                [currentPersonPFObject setObject:tableToken forKey:@"tableToken"];
+                [currentPersonPFObject saveInBackground];
                 
                 successBlock();
-            }
+            } 
             
         } else {
             // Log details of the failure

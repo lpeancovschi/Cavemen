@@ -15,5 +15,6 @@
 @property (nonatomic, strong) NSString *jobTitle;
 @property (nonatomic, strong) NSString *photoURI;
 @property (nonatomic, strong) NSArray *projects;
+@property (nonatomic, strong) NSString *tableToken;
 
 @end

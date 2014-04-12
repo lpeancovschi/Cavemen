@@ -7,6 +7,10 @@
 //
 
 #import "LoginViewController.h"
+#import <MBProgressHUD.h>
+#import "GodClient.h"
+#import "CurrentPerson.h"
+#import "PersonModel.h"
 
 #define kOFFSET_FOR_KEYBOARD 80.0
 
@@ -82,9 +86,40 @@
 
 - (IBAction)didPressLoginButton:(id)sender
 {
-    if ([self.delegate respondsToSelector:@selector(didLoginWithUsername:)]) {
-        [self.delegate didLoginWithUsername:self.usernameTextField.text];
-    }
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    
+    GodClient *godClient = [[GodClient alloc] init];
+    
+    [godClient getPersonWithFirstName:self.usernameTextField.text successBlock:^(PersonModel *personModel){
+    
+        CurrentPerson *currentPerson = [CurrentPerson sharedInstance];
+        
+        currentPerson.firstName = personModel.firstName;
+        currentPerson.lastName = personModel.lastName;
+        currentPerson.jobTitle = personModel.jobTitle;
+        currentPerson.photoURI = personModel.photoURI;
+        currentPerson.projects = personModel.projects;
+        currentPerson.tableToken = personModel.tableToken;
+        
+//        [godClient bookTableWithToken:@"1" successBlock:^(){
+//        
+//            NSLog(@"table 1 has been booked");
+//        } failureBlock:^(PersonModel *tableOwner){
+//        
+//            NSLog(@"table 1 is occupied by %@", tableOwner.firstName);
+//        }];
+        
+        [hud hide:YES];
+        
+        if ([self.delegate respondsToSelector:@selector(didLoginWithUsername:)]) {
+            [self.delegate didLoginWithUsername:self.usernameTextField.text];
+        }
+    } failureBlock:^(NSString *errorMsg){
+        
+        NSLog(@"%@", errorMsg);
+        [hud hide:YES];
+    }];
 }
 
 #pragma mark - Keyboard Callbacks
