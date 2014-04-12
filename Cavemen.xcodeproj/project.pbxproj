@@ -38,6 +38,8 @@
 		CD57B13C18F95A5B00D0365D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD57B13A18F95A5B00D0365D /* LoginViewController.xib */; };
 		CD8193A218F974E000D7B9A9 /* UserDetailsViewControlelr.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8193A018F974E000D7B9A9 /* UserDetailsViewControlelr.m */; };
 		CD8193A318F974E000D7B9A9 /* UserDetailsViewControlelr.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8193A118F974E000D7B9A9 /* UserDetailsViewControlelr.xib */; };
+		CD8193A718F97A2200D7B9A9 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8193A518F97A2200D7B9A9 /* ResultsViewController.m */; };
+		CD8193A818F97A2200D7B9A9 /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8193A618F97A2200D7B9A9 /* ResultsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,9 @@
 		CD81939F18F974E000D7B9A9 /* UserDetailsViewControlelr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailsViewControlelr.h; sourceTree = "<group>"; };
 		CD8193A018F974E000D7B9A9 /* UserDetailsViewControlelr.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailsViewControlelr.m; sourceTree = "<group>"; };
 		CD8193A118F974E000D7B9A9 /* UserDetailsViewControlelr.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailsViewControlelr.xib; sourceTree = "<group>"; };
+		CD8193A418F97A2200D7B9A9 /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
+		CD8193A518F97A2200D7B9A9 /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
+		CD8193A618F97A2200D7B9A9 /* ResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
 		D097E7D1840C4578BE447906 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -127,16 +132,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3B18E5BC18F47E0300367184 /* Discover VC */ = {
-			isa = PBXGroup;
-			children = (
-				3B18E5BD18F47E5300367184 /* DiscoverVC.h */,
-				3B18E5BE18F47E5300367184 /* DiscoverVC.m */,
-				3B18E5BF18F47E5300367184 /* DiscoverVC.xib */,
-			);
-			name = "Discover VC";
-			sourceTree = "<group>";
-		};
 		3B18E5C418F4850000367184 /* Data Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,30 +151,27 @@
 			name = "Left Menu";
 			sourceTree = "<group>";
 		};
-		3B18E65118F9668700367184 /* Emitter VC */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Emitter VC";
-			sourceTree = "<group>";
-		};
 		3B6A693518F1CB6900EBE271 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				3B18E65118F9668700367184 /* Emitter VC */,
 				3B18E64B18F9668300367184 /* AppConstants.h */,
 				3B18E64C18F9668300367184 /* AppConstants.m */,
 				4FDB485818F8472A00604AC5 /* QRResultVC */,
 				4FDB485418F8459100604AC5 /* QR Code VC */,
-				3B18E5BC18F47E0300367184 /* Discover VC */,
 				3B6A694018F1CBDE00EBE271 /* LeftMenuVC */,
 				3B6A693618F1CB7300EBE271 /* Base VC */,
+				3B18E5BD18F47E5300367184 /* DiscoverVC.h */,
+				3B18E5BE18F47E5300367184 /* DiscoverVC.m */,
+				3B18E5BF18F47E5300367184 /* DiscoverVC.xib */,
 				CD57B13818F95A5B00D0365D /* LoginViewController.h */,
 				CD57B13918F95A5B00D0365D /* LoginViewController.m */,
 				CD57B13A18F95A5B00D0365D /* LoginViewController.xib */,
 				CD81939F18F974E000D7B9A9 /* UserDetailsViewControlelr.h */,
 				CD8193A018F974E000D7B9A9 /* UserDetailsViewControlelr.m */,
 				CD8193A118F974E000D7B9A9 /* UserDetailsViewControlelr.xib */,
+				CD8193A418F97A2200D7B9A9 /* ResultsViewController.h */,
+				CD8193A518F97A2200D7B9A9 /* ResultsViewController.m */,
+				CD8193A618F97A2200D7B9A9 /* ResultsViewController.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -388,6 +380,7 @@
 				3B6A694818F1CC0A00EBE271 /* LeftMenuVC.xib in Resources */,
 				3B18E5C118F47E5300367184 /* DiscoverVC.xib in Resources */,
 				CD8193A318F974E000D7B9A9 /* UserDetailsViewControlelr.xib in Resources */,
+				CD8193A818F97A2200D7B9A9 /* ResultsViewController.xib in Resources */,
 				4FA13FD118EEF90D009A660B /* InfoPlist.strings in Resources */,
 				4FDB485D18F8474200604AC5 /* QRResultVC.xib in Resources */,
 				CD57B13C18F95A5B00D0365D /* LoginViewController.xib in Resources */,
@@ -444,6 +437,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B18E64F18F9668300367184 /* AppConstants.m in Sources */,
+				CD8193A718F97A2200D7B9A9 /* ResultsViewController.m in Sources */,
 				3B18E5CA18F4853300367184 /* LeftMenuItem.m in Sources */,
 				CD8193A218F974E000D7B9A9 /* UserDetailsViewControlelr.m in Sources */,
 				3B6A693918F1CB8F00EBE271 /* BaseVC.m in Sources */,

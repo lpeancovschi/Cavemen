@@ -26,6 +26,11 @@
 {
     [super viewDidLoad];
 
+    
+}
+
+- (void)startBeaconsDiscovery
+{
     _locationManager = [[CLLocationManager alloc] init];
     _locationManager.delegate = self;
     
