@@ -32,8 +32,6 @@
 		4FDB480C18F6A21600604AC5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FDB480B18F6A21600604AC5 /* CoreLocation.framework */; };
 		4FDB485318F82C1D00604AC5 /* ENLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB485218F82C1D00604AC5 /* ENLocationManager.m */; };
 		4FDB485718F845B000604AC5 /* QRCodeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB485618F845B000604AC5 /* QRCodeVC.m */; };
-		4FDB485C18F8474200604AC5 /* QRResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FDB485A18F8474200604AC5 /* QRResultVC.m */; };
-		4FDB485D18F8474200604AC5 /* QRResultVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FDB485B18F8474200604AC5 /* QRResultVC.xib */; };
 		CD57B13B18F95A5B00D0365D /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD57B13918F95A5B00D0365D /* LoginViewController.m */; };
 		CD57B13C18F95A5B00D0365D /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD57B13A18F95A5B00D0365D /* LoginViewController.xib */; };
 		CD8193A218F974E000D7B9A9 /* UserDetailsViewControlelr.m in Sources */ = {isa = PBXBuildFile; fileRef = CD8193A018F974E000D7B9A9 /* UserDetailsViewControlelr.m */; };
@@ -89,9 +87,6 @@
 		4FDB485218F82C1D00604AC5 /* ENLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ENLocationManager.m; sourceTree = "<group>"; };
 		4FDB485518F845B000604AC5 /* QRCodeVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeVC.h; sourceTree = "<group>"; };
 		4FDB485618F845B000604AC5 /* QRCodeVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeVC.m; sourceTree = "<group>"; };
-		4FDB485918F8474200604AC5 /* QRResultVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRResultVC.h; sourceTree = "<group>"; };
-		4FDB485A18F8474200604AC5 /* QRResultVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRResultVC.m; sourceTree = "<group>"; };
-		4FDB485B18F8474200604AC5 /* QRResultVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QRResultVC.xib; sourceTree = "<group>"; };
 		82A7006D697446A298593137 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		CD57B13818F95A5B00D0365D /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CD57B13918F95A5B00D0365D /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -156,7 +151,6 @@
 			children = (
 				3B18E64B18F9668300367184 /* AppConstants.h */,
 				3B18E64C18F9668300367184 /* AppConstants.m */,
-				4FDB485818F8472A00604AC5 /* QRResultVC */,
 				4FDB485418F8459100604AC5 /* QR Code VC */,
 				3B6A694018F1CBDE00EBE271 /* LeftMenuVC */,
 				3B6A693618F1CB7300EBE271 /* Base VC */,
@@ -290,16 +284,6 @@
 			name = "QR Code VC";
 			sourceTree = "<group>";
 		};
-		4FDB485818F8472A00604AC5 /* QRResultVC */ = {
-			isa = PBXGroup;
-			children = (
-				4FDB485918F8474200604AC5 /* QRResultVC.h */,
-				4FDB485A18F8474200604AC5 /* QRResultVC.m */,
-				4FDB485B18F8474200604AC5 /* QRResultVC.xib */,
-			);
-			name = QRResultVC;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -382,7 +366,6 @@
 				CD8193A318F974E000D7B9A9 /* UserDetailsViewControlelr.xib in Resources */,
 				CD8193A818F97A2200D7B9A9 /* ResultsViewController.xib in Resources */,
 				4FA13FD118EEF90D009A660B /* InfoPlist.strings in Resources */,
-				4FDB485D18F8474200604AC5 /* QRResultVC.xib in Resources */,
 				CD57B13C18F95A5B00D0365D /* LoginViewController.xib in Resources */,
 				4FA13FD918EEF90D009A660B /* Images.xcassets in Resources */,
 			);
@@ -443,7 +426,6 @@
 				3B6A693918F1CB8F00EBE271 /* BaseVC.m in Sources */,
 				4FA13FD718EEF90D009A660B /* AppDelegate.m in Sources */,
 				4FA13FD318EEF90D009A660B /* main.m in Sources */,
-				4FDB485C18F8474200604AC5 /* QRResultVC.m in Sources */,
 				3B18E5C718F4851E00367184 /* LeftMenuDataModel.m in Sources */,
 				4FDB485718F845B000604AC5 /* QRCodeVC.m in Sources */,
 				CD57B13B18F95A5B00D0365D /* LoginViewController.m in Sources */,
