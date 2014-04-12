@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSUInteger, TABLE_STATUS) {
-    BOOKED,
     EMPTY,
-    NOT_AVAILABLE,
+    BOOKED,
+    OCCUPIED,
 };
 
 @interface TableModel : NSObject
