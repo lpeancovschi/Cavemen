@@ -273,37 +273,43 @@
     }];
 }
 
-- (void)getProjectForToken:(NSString *)projectToken success:(void (^)(ProjectModel *projectModel))successBlock failureBlock:(void (^)())failureBlock {
+- (void)getProjectForToken:(NSString *)projectToken success:(void (^)(ProjectModel *projectModel))successBlock failureBlock:(void (^)(NSString *errorMsg))failureBlock {
 
-//    PFQuery *query = [PFQuery queryWithClassName:@"Project"];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        if (!error) {
-//            
-//            for (PFObject *object in objects) {
-//                
-//                NSString *token = [object objectForKey:@"token"];
-//                
-//                if ([token isEqualToString:projectToken]) {
-//                    
-//                    ProjectModel *projectModel = [[ProjectModel alloc] init];
-//                    project
-//                    
-//                    successBlock(tableModel);
-//                    break;
-//                }
-//                
-//            }
-//            
-//            if (!tableExists) {
-//                
-//                failureBlock(@"There is no such table");
-//            }
-//            
-//        } else {
-//            // Log details of the failure
-//            NSLog(@"Error: %@ %@", error, [error userInfo]);
-//        }
-//    }];
+    PFQuery *query = [PFQuery queryWithClassName:@"Project"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            
+            BOOL projectExists = NO;
+            
+            for (PFObject *object in objects) {
+                
+                NSString *token = [object objectForKey:@"token"];
+                
+                if ([token isEqualToString:projectToken]) {
+                    
+                    ProjectModel *projectModel = [[ProjectModel alloc] init];
+                    projectModel.projectTitle = [object objectForKey:@"title"];
+                    projectModel.projectIconUri = [object objectForKey:@"logoUri"];
+                    projectModel.projectPersons = [object objectForKey:@"team"];
+                    
+                    projectExists = YES;
+                    
+                    successBlock(projectModel);
+                    break;
+                }
+                
+            }
+            
+            if (!projectExists) {
+                
+                failureBlock(@"There is no such table");
+            }
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
 }
 
 @end
