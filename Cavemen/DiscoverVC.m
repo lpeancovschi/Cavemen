@@ -9,6 +9,8 @@
 #import "DiscoverVC.h"
 #import "TempInfoViewControlelrViewController.h"
 #import "QRCodeVC.h"
+#import "GodClient.h"
+#import "TableModel.h"
 
 #define BEACON_IDENTIFIER_TABLE     @"cavemen.beacon"
 
@@ -152,6 +154,45 @@
 - (void)didScanCode:(NSString *)code
 {
     NSLog(@"Did scan code: %@", code);
+    
+    if (code.length == 4) {
+        
+        // TODO: Remap
+        NSString *token;
+        if ([code isEqual:@"1234"]) {
+            token = @"10";
+        } else if ([code isEqual:@"4321"]) {
+            token = @"15";
+        }
+        
+        [[GodClient sharedInstance] getTableWithToken:token successBlock:^(TableModel *tableModel) {
+            
+            if (tableModel.tableStatus == EMPTY) {
+                
+                [[GodClient sharedInstance] unsubscribeFromCurrentWithSuccessBlock:^{
+                    
+                     NSLog(@"Table unsubscribed");
+                    
+                    [[GodClient sharedInstance] bookTableWithToken:token successBlock:^{
+                        
+                        NSLog(@"Table booked");
+                        
+                    } failureBlock:^(PersonModel *tableOwnerPerson) {
+                        
+                        
+                    }];
+                    
+                } failureBlock:^{
+                    
+                    
+                }];
+            }
+            
+        } failureBlock:^(NSString *errroMsg) {
+            
+            
+        }];
+    }
 }
 
 @end
