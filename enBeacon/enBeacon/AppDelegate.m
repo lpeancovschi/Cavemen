@@ -1,61 +1,22 @@
 //
 //  AppDelegate.m
-//  Cavemen
+//  enBeacon
 //
-//  Created by Leonid on 4/4/14.
-//  Copyright (c) 2014 Endava. All rights reserved.
+//  Created by Alex Maimescu on 4/12/14.
+//  Copyright (c) 2014 Alex Maimescu. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import <MMDrawerController/MMDrawerController.h>
-#import "LeftMenuVC.h"
-#import "LoginViewController.h"
-#import "DiscoverVC.h"
-
-@interface AppDelegate () <LoginViewControllerDelegate>
-
-@property (nonatomic) MMDrawerController *drawer;
-@property (nonatomic) LoginViewController *loginVC;
-
-@end
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
-    LeftMenuVC *leftMenu = [[LeftMenuVC alloc] init];
-    
-    DiscoverVC *discover = [[DiscoverVC  alloc] init];
-    UINavigationController *centerNav = [[UINavigationController alloc] initWithRootViewController:discover];
-    
-    self.loginVC = [[LoginViewController alloc] init];
-    self.loginVC.delegate = self;
-    
-    self.drawer = [[MMDrawerController alloc] initWithCenterViewController:centerNav leftDrawerViewController:leftMenu];
-    [self.drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
-    [self.drawer setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
-    
-    self.window.rootViewController = self.loginVC;
-    self.window.backgroundColor    = [UIColor whiteColor];
+    // Override point for customization after application launch.
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    
     return YES;
-}
-
-- (void)didLoginWithUsername:(NSString *)username
-{
-    NSLog(@"Username %@", username);
-    
-    [UIView transitionFromView:self.window.rootViewController.view
-                        toView:self.drawer.view
-                      duration:0.5
-                       options:UIViewAnimationOptionTransitionFlipFromLeft
-                    completion:^(BOOL finished)
-     {
-         self.window.rootViewController = self.drawer;
-     }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

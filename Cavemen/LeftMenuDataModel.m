@@ -11,7 +11,6 @@
 #import "MainVC.h"
 #import "DiscoverVC.h"
 #import "QRCodeVC.h"
-#import "ConfigViewController.h"
 
 @implementation LeftMenuDataModel
 
@@ -20,8 +19,7 @@
     NSArray *arr = @[
                      [[LeftMenuItem alloc] initWithTitle:@"Main VC" class:[MainVC class]],
                      [[LeftMenuItem alloc] initWithTitle:@"Discover VC" class:[DiscoverVC class]],
-                     [[LeftMenuItem alloc] initWithTitle:@"QRCode VC" class:[QRCodeVC class]],
-                     [[LeftMenuItem alloc] initWithTitle:@"Emitter VC" class:[ConfigViewController class]]
+                     [[LeftMenuItem alloc] initWithTitle:@"QRCode VC" class:[QRCodeVC class]]
                      ];
     
     return arr;
