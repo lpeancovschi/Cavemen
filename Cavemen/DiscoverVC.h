@@ -10,6 +10,6 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface DiscoverVC : BaseVC <CBCentralManagerDelegate, CLLocationManagerDelegate>
+@interface DiscoverVC : BaseVC <CLLocationManagerDelegate>
 
 @end
