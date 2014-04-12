@@ -11,6 +11,10 @@
 #import "LeftMenuVC.h"
 #import "LoginViewController.h"
 #import "UserDetailsViewControlelr.h"
+#import <Parse/Parse.h>
+#import "GodClient.h"
+#import "TableModel.h"
+#import "PersonModel.h"
 
 @interface AppDelegate () <LoginViewControllerDelegate>
 
@@ -24,6 +28,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    [Parse setApplicationId:@"X7woT6Y1lWzo9LWvVGTLalqEyHueHiz10XP5iwaa"
+                  clientKey:@"2nDd05km9XcNmHZShR7GZNOkpgOsOFs7CVwk7LGe"];
 
     LeftMenuVC *leftMenu = [[LeftMenuVC alloc] init];
     
@@ -40,6 +47,40 @@
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.loginVC];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+
+//    PFObject *testObject = [PFObject objectWithClassName:@"Table"];
+//    testObject[@"token"] = @"123";
+//    [testObject saveInBackground];
+    
+//    PFQuery *query = [PFQuery queryWithClassName:@"DU"];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            // The find succeeded.
+//            NSLog(@"Successfully retrieved %lu scores.", (unsigned long)objects.count);
+//            // Do something with the found objects
+//            for (PFObject *object in objects) {
+//                NSLog(@"%@", [object objectForKey:@"name"]);
+//            }
+//        } else {
+//            // Log details of the failure
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//        }
+//    }];
+    
+    GodClient *godClient = [[GodClient alloc] init];
+    [godClient getTableWithToken:@"123" successBlock:^(TableModel *tableModel) {
+    
+        NSLog(@"table.token = %@", tableModel.tableToken);
+        NSLog(@"table.status = %lu", tableModel.tableStatus);
+        NSLog(@"table.employees.count = %lu", (unsigned long)tableModel.employeesArray.count);
+    }];
+    
+    [godClient getPersonWithFirstName:@"Leonid" successBlock:^(PersonModel *personModel) {
+        
+        NSLog(@"personModel.fName = %@", personModel.firstName);
+        NSLog(@"personModel.lastName = %@", personModel.lastName);
+        NSLog(@"person.jobTitle = %@", personModel.jobTitle);
+    }];
     
     return YES;
 }

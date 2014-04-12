@@ -10,6 +10,14 @@
 
 @interface ConfigViewController ()
 
+@property (weak, nonatomic) IBOutlet UIButton *beaconTable1Button;
+@property (weak, nonatomic) IBOutlet UIButton *beaconTable2Button;
+
+@property (weak, nonatomic) IBOutlet UIButton *beaconProject1Button;
+@property (weak, nonatomic) IBOutlet UIButton *beaconProject2Button;
+
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+
 @end
 
 @implementation ConfigViewController
@@ -20,32 +28,42 @@
 	// Do any additional setup after loading the view.
     [self initBeacon];
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    UIButton *tableButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-    tableButton.backgroundColor = [UIColor redColor];
-    [tableButton addTarget:self action:@selector(transmitBeacon:) forControlEvents:UIControlEventAllTouchEvents];
-    [self.view addSubview:tableButton];
-    
-    UIButton *projectButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 200, 100, 100)];
-    projectButton.backgroundColor = [UIColor greenColor];
-    [projectButton addTarget:self action:@selector(transmitProjectBeacon:) forControlEvents:UIControlEventAllTouchEvents];
-    [self.view addSubview:projectButton];
+    self.title = @"Beacon Emitter";
 }
 
 - (void)initBeacon
 {
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"3AB1650D-20BD-4DCE-8AE2-B2B6D67FE109"];
     
-    self.beaconTableRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
-                                                                major:1
-                                                                minor:1
-                                                                identifier:@"cavemen.beacon"];
+    self.beaconTableRegion1 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
+                                                                      major:1
+                                                                      minor:1
+                                                                 identifier:@"cavemen.beacon"];
     
-    self.beaconProjectRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
-                                                                       major:2
-                                                                       minor:2
-                                                                  identifier:@"cavemen.beacon"];
+    self.beaconTableRegion2 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
+                                                                      major:2
+                                                                      minor:1
+                                                                 identifier:@"cavemen.beacon"];
+    
+    self.beaconProjectRegion1 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
+                                                                        major:2
+                                                                        minor:-1
+                                                                   identifier:@"cavemen.beacon"];
+    
+    self.beaconProjectRegion2 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
+                                                                        major:2
+                                                                        minor:-2
+                                                                   identifier:@"cavemen.beacon"];
+}
+
+- (IBAction)disableTransmission:(id)sender
+{
+    if ([self.peripheralManager isAdvertising]) {
+        [self.peripheralManager stopAdvertising];
+    }
+    
+    self.peripheralManager = nil;
+    self.statusLabel.text = @"No transmission";
 }
 
 - (IBAction)transmitBeacon:(UIButton *)sender {
@@ -55,10 +73,18 @@
     }
 
     NSLog(@"transmit table");
-    self.beaconPeripheralData = [self.beaconTableRegion peripheralDataWithMeasuredPower:nil];
+    
+    if (sender == self.beaconTable1Button) {
+        self.beaconPeripheralData = [self.beaconTableRegion1 peripheralDataWithMeasuredPower:nil];
+        self.statusLabel.text = @"Table 1";
+    } else if (sender == self.beaconTable2Button) {
+        self.beaconPeripheralData = [self.beaconTableRegion2 peripheralDataWithMeasuredPower:nil];
+        self.statusLabel.text = @"Table 2";
+    }
+    
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
-                                                                                     queue:nil
-                                                                                   options:nil];
+                                                                     queue:nil
+                                                                   options:nil];
 }
 
 - (IBAction)transmitProjectBeacon:(UIButton *)sender {
@@ -68,13 +94,21 @@
     }
     
     NSLog(@"transmit project");
-    self.beaconPeripheralData = [self.beaconProjectRegion peripheralDataWithMeasuredPower:nil];
+    
+    if (sender == self.beaconProject1Button) {
+        self.beaconPeripheralData = [self.beaconProjectRegion1 peripheralDataWithMeasuredPower:nil];
+        self.statusLabel.text = @"Project 1";
+    } else if (sender == self.beaconProject2Button) {
+        self.beaconPeripheralData = [self.beaconProjectRegion2 peripheralDataWithMeasuredPower:nil];
+        self.statusLabel.text = @"Project 2";
+    }
+    
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
                                                                      queue:nil
                                                                    options:nil];
 }
 
--(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
+- (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
 {
     if (peripheral.state == CBPeripheralManagerStatePoweredOn) {
         NSLog(@"Powered On");
@@ -83,12 +117,6 @@
         NSLog(@"Powered Off");
         [self.peripheralManager stopAdvertising];
     }
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
