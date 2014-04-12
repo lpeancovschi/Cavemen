@@ -111,6 +111,8 @@
 //        
 //            NSLog(@"table 1 is occupied by %@", tableOwner.firstName);
 //        }];
+
+        [godClient unsubscribeFromCurrentWithSuccessBlock:^(){} failureBlock:^(){}];
         
         [hud hide:YES];
         

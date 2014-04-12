@@ -12,10 +12,14 @@
 #import <Parse/Parse.h>
 #import "CurrentPerson.h"
 
+#define TABLE_EMPTY             @0
+#define TABLE_BOOKED            @1
+#define TABLE_OCCUPIED          @2
+
 @implementation GodClient
 
 - (void)getTableWithToken:(NSString *)tableToken successBlock:(void (^)(TableModel *tableModel))successBlock failureBlock:(void (^)(NSString *errroMsg))failureBlock {
-
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Table"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -79,6 +83,7 @@
                     personModel.jobTitle = [object objectForKey:@"jobTitle"];
                     personModel.photoURI = [object objectForKey:@"photoUri"];
                     personModel.projects = [object objectForKey:@"projects"];
+                    personModel.tableToken = [object objectForKey:@"tableToken"];
                     
                     userExists = YES;
                     
@@ -141,12 +146,39 @@
             }
             
             if (isTableFree) {
+                
+                [self changeTableStatus:tableToken status:TABLE_BOOKED];
             
                 [currentPersonPFObject setObject:tableToken forKey:@"tableToken"];
                 [currentPersonPFObject saveInBackground];
                 
                 successBlock();
             } 
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
+- (void)changeTableStatus:(NSString *)tableToken status:(NSNumber *)status{
+
+    PFQuery *query = [PFQuery queryWithClassName:@"Table"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                
+                NSString *tToken = [object objectForKey:@"token"];
+                
+                if ([tToken isEqualToString:tableToken]) {
+                    
+                    [object setObject:status forKey:@"status"];
+                    [object saveInBackground];
+                    
+                    break;
+                }
+            }
             
         } else {
             // Log details of the failure
@@ -172,6 +204,8 @@
                     // remove urrent table token
                     [object setObject:@"" forKey:@"tableToken"];
                     [object saveInBackground];
+                    
+                    [self changeTableStatus:tToken status:TABLE_EMPTY];
                     
                     successBlock();
                     break;
