@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import <MMDrawerController/MMDrawerController.h>
 #import "LeftMenuVC.h"
-#import "DiscoverVC.h"
+#import "ConfigViewController.h"
 
 @implementation AppDelegate
 
@@ -19,8 +19,8 @@
 
     LeftMenuVC *leftMenu = [[LeftMenuVC alloc] init];
     
-    DiscoverVC *discoverVC            = [[DiscoverVC alloc] init];
-    UINavigationController *centerNav = [[UINavigationController alloc] initWithRootViewController:discoverVC];
+    ConfigViewController *beaconEmitter            = [[ConfigViewController alloc] init];
+    UINavigationController *centerNav = [[UINavigationController alloc] initWithRootViewController:beaconEmitter];
     
     MMDrawerController *drawer = [[MMDrawerController alloc] initWithCenterViewController:centerNav leftDrawerViewController:leftMenu];
     [drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
