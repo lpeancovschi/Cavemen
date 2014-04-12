@@ -42,13 +42,17 @@
                                                            identifier:kBeaconTableIdentifier];
     
     self.beaconProjectRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
-                                                                       major:1
-                                                                       minor:1
+                                                                       major:2
+                                                                       minor:2
                                                                   identifier:kBeaconProjectIdentifier];
 }
 
 - (IBAction)transmitBeacon:(UIButton *)sender {
     
+    if ([self.peripheralManager isAdvertising]) {
+        [self.peripheralManager stopAdvertising];
+    }
+
     NSLog(@"transmit table");
     self.beaconPeripheralData = [self.beaconTableRegion peripheralDataWithMeasuredPower:nil];
     self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self
@@ -57,6 +61,10 @@
 }
 
 - (IBAction)transmitProjectBeacon:(UIButton *)sender {
+    
+    if ([self.peripheralManager isAdvertising]) {
+        [self.peripheralManager stopAdvertising];
+    }
     
     NSLog(@"transmit project");
     self.beaconPeripheralData = [self.beaconProjectRegion peripheralDataWithMeasuredPower:nil];
