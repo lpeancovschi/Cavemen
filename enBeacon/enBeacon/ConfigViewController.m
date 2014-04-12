@@ -47,12 +47,12 @@
     
     self.beaconProjectRegion1 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
                                                                         major:2
-                                                                        minor:-1
+                                                                        minor:1000
                                                                    identifier:@"cavemen.beacon"];
     
     self.beaconProjectRegion2 = [[CLBeaconRegion alloc] initWithProximityUUID:uuid
                                                                         major:2
-                                                                        minor:-2
+                                                                        minor:1001
                                                                    identifier:@"cavemen.beacon"];
 }
 
@@ -118,5 +118,7 @@
         [self.peripheralManager stopAdvertising];
     }
 }
+
+
 
 @end
