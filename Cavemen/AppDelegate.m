@@ -10,7 +10,7 @@
 #import <MMDrawerController/MMDrawerController.h>
 #import "LeftMenuVC.h"
 #import "LoginViewController.h"
-#import "DiscoverVC.h"
+#import "UserDetailsViewControlelr.h"
 
 @interface AppDelegate () <LoginViewControllerDelegate>
 
@@ -27,8 +27,8 @@
 
     LeftMenuVC *leftMenu = [[LeftMenuVC alloc] init];
     
-    DiscoverVC *discover = [[DiscoverVC  alloc] init];
-    UINavigationController *centerNav = [[UINavigationController alloc] initWithRootViewController:discover];
+    UserDetailsViewControlelr *myProfileVC = [[UserDetailsViewControlelr  alloc] init];
+    UINavigationController *centerNav = [[UINavigationController alloc] initWithRootViewController:myProfileVC];
     
     self.loginVC = [[LoginViewController alloc] init];
     self.loginVC.delegate = self;
@@ -37,8 +37,8 @@
     [self.drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
     [self.drawer setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     
-    self.window.rootViewController = self.loginVC;
-    self.window.backgroundColor    = [UIColor whiteColor];
+    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:self.loginVC];
+    self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
     return YES;
