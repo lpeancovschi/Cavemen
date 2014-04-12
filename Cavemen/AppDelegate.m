@@ -10,6 +10,14 @@
 #import <MMDrawerController/MMDrawerController.h>
 #import "LeftMenuVC.h"
 #import "ConfigViewController.h"
+#import "LoginViewController.h"
+
+@interface AppDelegate () <LoginViewControllerDelegate>
+
+@property (nonatomic) MMDrawerController *drawer;
+@property (nonatomic) LoginViewController *loginVC;
+
+@end
 
 @implementation AppDelegate
 
@@ -19,17 +27,35 @@
 
     LeftMenuVC *leftMenu = [[LeftMenuVC alloc] init];
     
-    ConfigViewController *beaconEmitter            = [[ConfigViewController alloc] init];
+    ConfigViewController *beaconEmitter = [[ConfigViewController alloc] init];
     UINavigationController *centerNav = [[UINavigationController alloc] initWithRootViewController:beaconEmitter];
     
-    MMDrawerController *drawer = [[MMDrawerController alloc] initWithCenterViewController:centerNav leftDrawerViewController:leftMenu];
-    [drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
-    [drawer setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    self.loginVC = [[LoginViewController alloc] init];
+    self.loginVC.delegate = self;
     
-    self.window.rootViewController = drawer;
+    self.drawer = [[MMDrawerController alloc] initWithCenterViewController:centerNav leftDrawerViewController:leftMenu];
+    [self.drawer setOpenDrawerGestureModeMask:MMOpenDrawerGestureModeAll];
+    [self.drawer setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
+    
+    self.window.rootViewController = self.loginVC;
     self.window.backgroundColor    = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
     return YES;
+}
+
+- (void)didLoginWithUsername:(NSString *)username
+{
+    NSLog(@"Username %@", username);
+    
+    [UIView transitionFromView:self.window.rootViewController.view
+                        toView:self.drawer.view
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionFlipFromLeft
+                    completion:^(BOOL finished)
+     {
+         self.window.rootViewController = self.drawer;
+     }];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
