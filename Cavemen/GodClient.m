@@ -11,6 +11,7 @@
 #import "PersonModel.h"
 #import <Parse/Parse.h>
 #import "CurrentPerson.h"
+#import "ProjectModel.h"
 
 #define TABLE_EMPTY             @0
 #define TABLE_BOOKED            @1
@@ -232,6 +233,77 @@
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
+}
+
+- (void)getMyCurrentTableWithSuccessBlock:(void (^)(NSString *myTableToken))successBlock failureBlock:(void (^)())failureBlock {
+
+    PFQuery *query = [PFQuery queryWithClassName:@"Person"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            
+            CurrentPerson *currentPerson = [CurrentPerson sharedInstance];
+            
+            BOOL didFindTable = NO;
+            
+            for (PFObject *object in objects) {
+                
+                NSString *name = [object objectForKey:@"fName"];
+                
+                if ([name isEqualToString:currentPerson.firstName]) {
+                    
+                    NSString *tableToken = [object objectForKey:@"tableToken"];
+                    
+                    didFindTable = YES;
+                    
+                    successBlock(tableToken);
+                    break;
+                }
+            }
+            
+            if (!didFindTable) {
+            
+                successBlock(nil);
+            }
+            
+        } else {
+            // Log details of the failure
+            failureBlock();
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
+- (void)getProjectForToken:(NSString *)projectToken success:(void (^)(ProjectModel *projectModel))successBlock failureBlock:(void (^)())failureBlock {
+
+//    PFQuery *query = [PFQuery queryWithClassName:@"Project"];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        if (!error) {
+//            
+//            for (PFObject *object in objects) {
+//                
+//                NSString *token = [object objectForKey:@"token"];
+//                
+//                if ([token isEqualToString:projectToken]) {
+//                    
+//                    ProjectModel *projectModel = [[ProjectModel alloc] init];
+//                    project
+//                    
+//                    successBlock(tableModel);
+//                    break;
+//                }
+//                
+//            }
+//            
+//            if (!tableExists) {
+//                
+//                failureBlock(@"There is no such table");
+//            }
+//            
+//        } else {
+//            // Log details of the failure
+//            NSLog(@"Error: %@ %@", error, [error userInfo]);
+//        }
+//    }];
 }
 
 @end

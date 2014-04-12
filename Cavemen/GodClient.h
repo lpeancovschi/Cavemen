@@ -10,6 +10,7 @@
 
 @class TableModel;
 @class PersonModel;
+@class ProjectModel;
 
 @interface GodClient : NSObject
 
@@ -23,6 +24,8 @@
 
 - (void)unsubscribeFromCurrentWithSuccessBlock:(void (^)())successBlock failureBlock:(void (^)())failureBlock;
 
-//- (void)getProjectForToken:(NSString *)projectToken success
+- (void)getMyCurrentTableWithSuccessBlock:(void (^)(NSString *myTableToken))successBlock failureBlock:(void (^)())failureBlock;
+
+- (void)getProjectForToken:(NSString *)projectToken success:(void (^)(ProjectModel *projectModel))successBlock failureBlock:(void (^)())failureBlock;
 
 @end

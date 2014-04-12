@@ -10,6 +10,8 @@
 
 @interface ProjectModel : NSObject
 
-//@property (nonatomic, strong)
+@property (nonatomic, strong) NSString *projectTitle;
+@property (nonatomic, strong) NSString *projectIconUri;
+@property (nonatomic, strong) NSArray *projectPersons;
 
 @end
