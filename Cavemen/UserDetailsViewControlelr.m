@@ -12,6 +12,7 @@
 #import "PersonModel.h"
 #import "CurrentPerson.h"
 #import <QuartzCore/QuartzCore.h>
+#import "GodClient.h"
 
 @interface UserDetailsViewControlelr ()
 
@@ -19,6 +20,9 @@
 @property (nonatomic, weak) IBOutlet UILabel *nameLabel;
 @property (nonatomic, weak) IBOutlet UILabel *jobTitleLable;
 @property (nonatomic, weak) IBOutlet UILabel *tableTokenLabel;
+@property (weak, nonatomic) IBOutlet UIButton *relocateButton;
+@property (weak, nonatomic) IBOutlet UIButton *freeCurrentTableButton;
+@property (weak, nonatomic) IBOutlet UIView *employeeTableWidget;
 
 @end
 
@@ -51,6 +55,8 @@
         self.navigationItem.leftBarButtonItem = cancelButton;
         
         self.title = @"Table Owner";
+        
+        self.employeeTableWidget.hidden = YES;
     }
     else
     {
@@ -115,6 +121,24 @@
     DiscoverVC *discoveryVC = [[DiscoverVC alloc] init];
     
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:discoveryVC] animated:YES completion:^{
+        
+    }];
+}
+
+- (IBAction)didPressFreeCurrentTable:(id)sender
+{
+    [[GodClient sharedInstance] unsubscribeFromCurrentWithSuccessBlock:^{
+        
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cavemen"
+                                                            message:@"You have successfully freed your current table"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil, nil];
+        
+        [alertView show];
+        
+    } failureBlock:^{
+        
         
     }];
 }
