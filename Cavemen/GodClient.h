@@ -21,4 +21,6 @@
 
 - (void)unsubscribeFromCurrentWithSuccessBlock:(void (^)())successBlock failureBlock:(void (^)())failureBlock;
 
+//- (void)getProjectForToken:(NSString *)projectToken success
+
 @end

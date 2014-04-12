@@ -28,6 +28,9 @@
 		3B18E67318F9808900367184 /* PersonModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E67218F9808900367184 /* PersonModel.m */; };
 		3B18E67618F98E8E00367184 /* CurrentPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B18E67518F98E8E00367184 /* CurrentPerson.m */; };
 		3B6781DB18F9A9CF0069E23C /* TableModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6781DA18F9A9CF0069E23C /* TableModel.m */; };
+		3B6781DF18F9B82D0069E23C /* ProjectVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6781DD18F9B82D0069E23C /* ProjectVC.m */; };
+		3B6781E018F9B82D0069E23C /* ProjectVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6781DE18F9B82D0069E23C /* ProjectVC.xib */; };
+		3B6781E318F9BAA70069E23C /* ProjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6781E218F9BAA70069E23C /* ProjectModel.m */; };
 		3B6A694718F1CC0A00EBE271 /* LeftMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B6A694518F1CC0A00EBE271 /* LeftMenuVC.m */; };
 		3B6A694818F1CC0A00EBE271 /* LeftMenuVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B6A694618F1CC0A00EBE271 /* LeftMenuVC.xib */; };
 		44F8151C11E4407BB5121FEA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D097E7D1840C4578BE447906 /* libPods.a */; };
@@ -94,6 +97,11 @@
 		3B18E67518F98E8E00367184 /* CurrentPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentPerson.m; sourceTree = "<group>"; };
 		3B6781D918F9A9CF0069E23C /* TableModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableModel.h; sourceTree = "<group>"; };
 		3B6781DA18F9A9CF0069E23C /* TableModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableModel.m; sourceTree = "<group>"; };
+		3B6781DC18F9B82D0069E23C /* ProjectVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectVC.h; sourceTree = "<group>"; };
+		3B6781DD18F9B82D0069E23C /* ProjectVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectVC.m; sourceTree = "<group>"; };
+		3B6781DE18F9B82D0069E23C /* ProjectVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectVC.xib; sourceTree = "<group>"; };
+		3B6781E118F9BAA70069E23C /* ProjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectModel.h; sourceTree = "<group>"; };
+		3B6781E218F9BAA70069E23C /* ProjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectModel.m; sourceTree = "<group>"; };
 		3B6A694418F1CC0A00EBE271 /* LeftMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeftMenuVC.h; sourceTree = "<group>"; };
 		3B6A694518F1CC0A00EBE271 /* LeftMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMenuVC.m; sourceTree = "<group>"; };
 		3B6A694618F1CC0A00EBE271 /* LeftMenuVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LeftMenuVC.xib; sourceTree = "<group>"; };
@@ -181,6 +189,8 @@
 				3B18E67218F9808900367184 /* PersonModel.m */,
 				3B18E67418F98E8E00367184 /* CurrentPerson.h */,
 				3B18E67518F98E8E00367184 /* CurrentPerson.m */,
+				3B6781E118F9BAA70069E23C /* ProjectModel.h */,
+				3B6781E218F9BAA70069E23C /* ProjectModel.m */,
 			);
 			name = "Data Model";
 			sourceTree = "<group>";
@@ -226,6 +236,9 @@
 				CD8FC10F18F997EA001877C6 /* TempInfoViewControlelrViewController.h */,
 				CD8FC11018F997EA001877C6 /* TempInfoViewControlelrViewController.m */,
 				CD8FC11118F997EA001877C6 /* TempInfoViewControlelrViewController.xib */,
+				3B6781DC18F9B82D0069E23C /* ProjectVC.h */,
+				3B6781DD18F9B82D0069E23C /* ProjectVC.m */,
+				3B6781DE18F9B82D0069E23C /* ProjectVC.xib */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -408,6 +421,7 @@
 			files = (
 				3B6A694818F1CC0A00EBE271 /* LeftMenuVC.xib in Resources */,
 				CD8FC11318F997EA001877C6 /* TempInfoViewControlelrViewController.xib in Resources */,
+				3B6781E018F9B82D0069E23C /* ProjectVC.xib in Resources */,
 				3B18E5C118F47E5300367184 /* DiscoverVC.xib in Resources */,
 				CD8193A318F974E000D7B9A9 /* UserDetailsViewControlelr.xib in Resources */,
 				CD8193A818F97A2200D7B9A9 /* ResultsViewController.xib in Resources */,
@@ -471,6 +485,7 @@
 				3B6781DB18F9A9CF0069E23C /* TableModel.m in Sources */,
 				4FA13FD718EEF90D009A660B /* AppDelegate.m in Sources */,
 				4FA13FD318EEF90D009A660B /* main.m in Sources */,
+				3B6781DF18F9B82D0069E23C /* ProjectVC.m in Sources */,
 				3B18E67318F9808900367184 /* PersonModel.m in Sources */,
 				3B18E5C718F4851E00367184 /* LeftMenuDataModel.m in Sources */,
 				3B18E66D18F976E100367184 /* GodClient.m in Sources */,
@@ -479,6 +494,7 @@
 				CD57B13B18F95A5B00D0365D /* LoginViewController.m in Sources */,
 				3B6A694718F1CC0A00EBE271 /* LeftMenuVC.m in Sources */,
 				3B18E5C018F47E5300367184 /* DiscoverVC.m in Sources */,
+				3B6781E318F9BAA70069E23C /* ProjectModel.m in Sources */,
 				CD8FC11218F997EA001877C6 /* TempInfoViewControlelrViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
