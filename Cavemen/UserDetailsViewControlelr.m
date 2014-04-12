@@ -10,6 +10,7 @@
 #import "DiscoverVC.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "PersonModel.h"
+#import "CurrentPerson.h"
 
 @interface UserDetailsViewControlelr ()
 
@@ -35,6 +36,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if (!self.personModel) {
+    
+        self.personModel = [CurrentPerson sharedInstance];
+    }
     
     self.tableTokenLabel.text = @"Table is not assigned";
     
