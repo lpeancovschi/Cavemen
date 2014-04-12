@@ -9,6 +9,6 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 #import <CoreLocation/CoreLocation.h>
 
-@interface DiscoverVC : UIViewController <CLLocationManagerDelegate>
+@interface DiscoverVC : UIViewController
 
 @end

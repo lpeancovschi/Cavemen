@@ -39,7 +39,9 @@
     [super viewDidLoad];
     
     self.usernameTextField.delegate = self;
+    self.usernameTextField.autocorrectionType = UITextAutocorrectionTypeNo;
     self.passwordTextField.delegate = self;
+    self.passwordTextField.autocorrectionType = UITextAutocorrectionTypeNo;
 }
 
 - (void)viewWillAppear:(BOOL)animated

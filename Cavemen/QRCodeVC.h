@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <ZBarSDK/ZBarSDK.h>
 
+@protocol QRCodeVCDelegate <NSObject>
+
+- (void)didScanCode:(NSString *)code;
+
+@end
+
 @interface QRCodeVC : ZBarReaderViewController <ZBarReaderDelegate>
+
+@property (nonatomic, weak) id <QRCodeVCDelegate> delegate;
 
 @end

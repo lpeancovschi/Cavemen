@@ -7,6 +7,7 @@
 //
 
 #import "TempInfoViewControlelrViewController.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface TempInfoViewControlelrViewController ()
 
@@ -27,7 +28,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Scanning...";
+    
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationItem.leftBarButtonItem = cancelButton;
+}
+
+- (void)cancel
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+        NSLog(@"Did press cancel");
+    }];
 }
 
 @end

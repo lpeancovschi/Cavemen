@@ -46,7 +46,7 @@
 {
     DiscoverVC *discoveryVC = [[DiscoverVC alloc] init];
     
-    [self presentViewController:discoveryVC animated:YES completion:^{
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:discoveryVC] animated:YES completion:^{
         
     }];
 }

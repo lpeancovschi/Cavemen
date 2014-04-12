@@ -8,12 +8,14 @@
 
 #import "DiscoverVC.h"
 #import "TempInfoViewControlelrViewController.h"
+#import "QRCodeVC.h"
 
 #define BEACON_IDENTIFIER_TABLE     @"cavemen.beacon"
 
 #define BEACON_REGION_PROXIMITY_UUID @"3AB1650D-20BD-4DCE-8AE2-B2B6D67FE109"
 
-@interface DiscoverVC ()
+@interface DiscoverVC () <UITextFieldDelegate, CLLocationManagerDelegate, QRCodeVCDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *tokenTextField;
 
 @end
 
@@ -28,6 +30,19 @@
     [super viewDidLoad];
 
     self.title = @"Identify table";
+    self.tokenTextField.delegate = self;
+    
+    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+    self.navigationItem.leftBarButtonItem = cancelButton;
+}
+
+- (void)cancel
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        [self stopBeaconMonitoring];
+    }];
 }
 
 - (void)startBeaconsDiscovery
@@ -68,11 +83,22 @@
     if ([beacons count] > 0) {
                 
         CLBeacon *nearestExhibit = [beacons firstObject];
-        NSLog(@"Did range beacon. Accuracy = %f meters, rssi: %li, major: %@, minor: %@", nearestExhibit.accuracy, nearestExhibit.rssi, nearestExhibit.major, nearestExhibit.minor);
         
-        if (([nearestExhibit.major isEqual: @1]) && ([nearestExhibit.minor  isEqual:@1]) && nearestExhibit.proximity == CLProximityImmediate) {
+        if ((nearestExhibit.proximity == CLProximityImmediate) &&
+            (nearestExhibit.accuracy <= 0.1)) {
+            
+            NSString *code;
+            
+            NSLog(@"ID: %@, %@", nearestExhibit.major, nearestExhibit.minor);
+            
+            if (([nearestExhibit.major isEqual:@1]) && ([nearestExhibit.minor isEqual:@1])) {
+                code = @"1234";
+            } if (([nearestExhibit.major isEqual:@2]) && ([nearestExhibit.minor isEqual:@1])) {
+                code = @"4321";
+            }
+            
             [self.presentedViewController dismissViewControllerAnimated:YES completion:^{
-                
+                [self didScanCode:code];
             }];
         }
     }
@@ -95,10 +121,37 @@
 {
     TempInfoViewControlelrViewController *tempInfoVC = [[TempInfoViewControlelrViewController alloc] init];
     
-    [self presentViewController:tempInfoVC animated:YES completion:^{
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:tempInfoVC] animated:YES completion:^{
         
         [self startBeaconsDiscovery];
     }];
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.tokenTextField) {
+        [self didScanCode:textField.text];
+        [textField resignFirstResponder];
+    }
+    
+    return YES;
+}
+
+- (IBAction)didPressScanQRCode:(id)sender
+{
+    QRCodeVC *qrCodeVC = [[QRCodeVC alloc] init];
+    qrCodeVC.delegate = self;
+    
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:qrCodeVC] animated:YES completion:^{}];
+}
+
+#pragma mark - QRCodeVCDelegate
+
+- (void)didScanCode:(NSString *)code
+{
+    NSLog(@"Did scan code: %@", code);
 }
 
 @end
