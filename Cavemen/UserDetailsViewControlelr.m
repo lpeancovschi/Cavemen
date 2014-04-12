@@ -63,6 +63,11 @@
     
     self.tableTokenLabel.text = @"Table is not assigned";
     
+    [self updateUI];
+}
+
+- (void)updateUI {
+
     [self.photoImageView setImageWithURL:[NSURL URLWithString:_personModel.photoURI] placeholderImage:[UIImage imageNamed:@"photoPlaceholder"]];
     self.nameLabel.text = [NSString stringWithFormat:@"%@ %@", _personModel.firstName, _personModel.lastName];
     self.jobTitleLable.text = _personModel.jobTitle;
@@ -70,6 +75,16 @@
     if (_personModel.tableToken) {
         self.tableTokenLabel.text = _personModel.tableToken;
     }
+}
+
+- (void)setPersonModel:(PersonModel *)personModel {
+
+    if (_personModel != personModel) {
+    
+        _personModel = personModel;
+    }
+    
+    [self updateUI];
 }
 
 - (void)logout
