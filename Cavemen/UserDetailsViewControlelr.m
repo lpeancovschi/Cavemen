@@ -13,6 +13,7 @@
 #import "CurrentPerson.h"
 #import <QuartzCore/QuartzCore.h>
 #import "GodClient.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 @interface UserDetailsViewControlelr ()
 
@@ -127,7 +128,12 @@
 
 - (IBAction)didPressFreeCurrentTable:(id)sender
 {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    
     [[GodClient sharedInstance] unsubscribeFromCurrentWithSuccessBlock:^{
+        
+        [hud hide:YES];
         
         self.tableTokenLabel.text = @"Table is not assigned";
         
@@ -141,7 +147,7 @@
         
     } failureBlock:^{
         
-        
+        [hud hide:YES];
     }];
 }
 
