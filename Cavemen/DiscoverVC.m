@@ -15,6 +15,7 @@
 #import "ProjectModel.h"
 #import "ProjectVC.h"
 #import "CurrentPerson.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 
 #define BEACON_IDENTIFIER_TABLE     @"cavemen.beacon"
 
@@ -92,6 +93,9 @@
 - (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region
 {
     if ([beacons count] > 0) {
+        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"Loading...";
                 
         CLBeacon *nearestExhibit = [beacons firstObject];
         
@@ -211,11 +215,15 @@
         
         [[GodClient sharedInstance] bookTableWithToken:code successBlock:^{
             
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            
             UserDetailsViewControlelr *userDetails = [[UserDetailsViewControlelr alloc] initWithPersonModel:[CurrentPerson sharedInstance]];
             userDetails.personQuickLook = YES;
             [self presentViewController:[[UINavigationController alloc] initWithRootViewController:userDetails] animated:YES completion:nil];
             
         } failureBlock:^(PersonModel *tableOwnerPerson) {
+            
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             
             UserDetailsViewControlelr *userDetails = [[UserDetailsViewControlelr alloc] initWithPersonModel:tableOwnerPerson];
             userDetails.personQuickLook = YES;
@@ -227,12 +235,16 @@
 - (void)didScanProjectCode:(NSString *)code {
 
     [[GodClient sharedInstance] getProjectForToken:code success:^(ProjectModel *projectModel){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     
         ProjectVC *projectVC = [[ProjectVC alloc] init];
         projectVC.projectModel = projectModel;
         [self.navigationController pushViewController:projectVC animated:YES];
         
     } failureBlock:^(NSString *errorMsg){
+        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     
     }];
 }
