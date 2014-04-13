@@ -13,6 +13,7 @@
 #import "CurrentPerson.h"
 #import <QuartzCore/QuartzCore.h>
 #import "GodClient.h"
+#import <UIViewController+MMDrawerController.h>
 
 @interface UserDetailsViewControlelr ()
 
@@ -66,9 +67,17 @@
         
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
         self.navigationItem.rightBarButtonItem = logoutButton;
+        
+        UIBarButtonItem *menuItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self action:@selector(menuPressed)];
+        self.navigationItem.leftBarButtonItem = menuItem;
     }
     
     self.tableTokenLabel.text = @"Table is not assigned";
+}
+
+- (void)menuPressed {
+
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
 - (void)updateUI {
@@ -79,14 +88,7 @@
     
     if (_personModel.tableToken.length) {
         
-        NSString *token = _personModel.tableToken;
-        if ([token isEqualToString:@"10"]) {
-            token = @"1234";
-        } else if ([token isEqualToString:@"15"]) {
-            token = @"4321";
-        }
-        
-        self.tableTokenLabel.text = [NSString stringWithFormat:@"Personal table ID %@", token];
+        self.tableTokenLabel.text = [NSString stringWithFormat:@"Personal table ID %@", _personModel.tableToken];
     }
     else {
         
