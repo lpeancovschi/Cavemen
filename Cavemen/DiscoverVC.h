@@ -11,4 +11,6 @@
 
 @interface DiscoverVC : UIViewController
 
+@property (nonatomic) BOOL bookingMode;
+
 @end

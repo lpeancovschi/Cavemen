@@ -28,4 +28,6 @@
 
 - (void)getProjectForToken:(NSString *)projectToken success:(void (^)(ProjectModel *projectModel))successBlock failureBlock:(void (^)(NSString *errorMsg))failureBlock;
 
+- (void)getPersonForTableToken:(NSString *)token successBlock:(void (^)(PersonModel *personModel))successBlock failureBlock:(void (^)(NSString *errorMsg))failureBlock;
+
 @end

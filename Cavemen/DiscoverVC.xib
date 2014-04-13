@@ -6,6 +6,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DiscoverVC">
             <connections>
+                <outlet property="scanProjectButton" destination="cmk-Jb-gR1" id="3XY-jY-Cwo"/>
+                <outlet property="scanProjectLabel" destination="tTc-18-pBy" id="ACl-rT-aVh"/>
                 <outlet property="tokenTextField" destination="1GX-8a-ySd" id="ef1-sZ-yBy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

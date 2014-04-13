@@ -23,6 +23,8 @@
 
 @interface DiscoverVC () <UITextFieldDelegate, CLLocationManagerDelegate, QRCodeVCDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *tokenTextField;
+@property (weak, nonatomic) IBOutlet UIButton *scanProjectButton;
+@property (weak, nonatomic) IBOutlet UILabel *scanProjectLabel;
 
 @end
 
@@ -42,10 +44,15 @@
     self.tokenTextField.delegate = self;
     _monitorProjects = NO;
     
-    UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
-    
-    self.navigationController.navigationBar.tintColor = [UIColor blackColor];
-    self.navigationItem.leftBarButtonItem = cancelButton;
+    if (self.bookingMode) {
+        UIBarButtonItem *cancelButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+        
+        self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+        self.navigationItem.leftBarButtonItem = cancelButton;
+    } else {
+        self.scanProjectButton.hidden = YES;
+        self.scanProjectLabel.hidden = YES;
+    }
 }
 
 - (void)cancel
@@ -216,29 +223,62 @@
     
     if (code.length <= 4) {
         
-        [[GodClient sharedInstance] bookTableWithToken:code successBlock:^{
+        if (self.bookingMode) {
             
-            [self dismissViewControllerAnimated:YES completion:^{
+            [[GodClient sharedInstance] bookTableWithToken:code successBlock:^{
                 
-                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cavemen"
-                                                                    message:@"You have successfully booked a new table"
-                                                                   delegate:nil
-                                                          cancelButtonTitle:@"OK"
-                                                          otherButtonTitles:nil, nil];
+                [self dismissViewControllerAnimated:YES completion:^{
+                    
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cavemen"
+                                                                        message:@"You have successfully booked a new table"
+                                                                       delegate:nil
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil, nil];
+                    
+                    [alertView show];
+                }];
                 
-                [alertView show];
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                
+            } failureBlock:^(PersonModel *tableOwnerPerson) {
+                
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                
+                UserDetailsViewControlelr *userDetails = [[UserDetailsViewControlelr alloc] initWithPersonModel:tableOwnerPerson];
+                userDetails.personQuickLook = YES;
+                [self presentViewController:[[UINavigationController alloc] initWithRootViewController:userDetails] animated:YES completion:nil];
             }];
-
-            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        }
+        else {
             
-        } failureBlock:^(PersonModel *tableOwnerPerson) {
-            
-            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-            
-            UserDetailsViewControlelr *userDetails = [[UserDetailsViewControlelr alloc] initWithPersonModel:tableOwnerPerson];
-            userDetails.personQuickLook = YES;
-            [self presentViewController:[[UINavigationController alloc] initWithRootViewController:userDetails] animated:YES completion:nil];
-        }];
+            [[GodClient sharedInstance] getPersonForTableToken:code successBlock:^(PersonModel *personModel) {
+                
+                if (personModel) {
+                    
+                    UserDetailsViewControlelr *userDetails = [[UserDetailsViewControlelr alloc] initWithPersonModel:personModel];
+                    userDetails.personQuickLook = YES;
+                    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:userDetails] animated:YES completion:nil];
+                    
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                }
+                else {
+                    
+                    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cavemen"
+                                                                        message:@"This table is free"
+                                                                       delegate:nil
+                                                              cancelButtonTitle:@"OK"
+                                                              otherButtonTitles:nil, nil];
+                    
+                    [alertView show];
+                    
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                }
+                
+            } failureBlock:^(NSString *errorMsg) {
+                
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            }];
+        }
     }
 }
 

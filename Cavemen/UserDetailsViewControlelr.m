@@ -122,6 +122,7 @@
 - (IBAction)didPressChangeTableButton:(id)sender
 {
     DiscoverVC *discoveryVC = [[DiscoverVC alloc] init];
+    discoveryVC.bookingMode = YES;
     
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:discoveryVC] animated:YES completion:^{
         

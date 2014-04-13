@@ -18,6 +18,7 @@
 
     NSArray *arr = @[
                      [[LeftMenuItem alloc] initWithTitle:@"My Profile" class:[UserDetailsViewControlelr class]],
+                     [[LeftMenuItem alloc] initWithTitle:@"Check Table" class:[DiscoverVC class]],
                      [[LeftMenuItem alloc] initWithTitle:@"Your Zone Award" class:[ResultsViewController class]],
                      [[LeftMenuItem alloc] initWithTitle:@"EnSport" class:[ResultsViewController class]],
                      [[LeftMenuItem alloc] initWithTitle:@"EnCoach" class:[ResultsViewController class]]

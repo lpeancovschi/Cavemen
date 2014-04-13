@@ -293,6 +293,49 @@
     }];
 }
 
+- (void)getPersonForTableToken:(NSString *)token successBlock:(void (^)(PersonModel *))successBlock failureBlock:(void (^)(NSString *))failureBlock
+{
+    PFQuery *query = [PFQuery queryWithClassName:@"Person"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            
+            BOOL didFindTable = NO;
+            
+            for (PFObject *object in objects) {
+                
+                NSString *uToken = [object objectForKey:@"tableToken"];
+                
+                if ([token isEqualToString:uToken]) {
+                    
+                    didFindTable = YES;
+                    
+                    PersonModel *personModel = [[PersonModel alloc] init];
+                    personModel.login = [object objectForKey:@"login"];
+                    personModel.firstName = [object objectForKey:@"fName"];
+                    personModel.lastName = [object objectForKey:@"lName"];
+                    personModel.jobTitle = [object objectForKey:@"jobTitle"];
+                    personModel.photoURI = [object objectForKey:@"photoUri"];
+                    personModel.projects = [object objectForKey:@"projects"];
+                    personModel.tableToken = [object objectForKey:@"tableToken"];
+                    
+                    successBlock(personModel);
+                    break;
+                }
+            }
+            
+            if (!didFindTable) {
+                
+                successBlock(nil);
+            }
+            
+        } else {
+            // Log details of the failure
+            failureBlock(nil);
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
 - (void)getProjectForToken:(NSString *)projectToken success:(void (^)(ProjectModel *projectModel))successBlock failureBlock:(void (^)(NSString *errorMsg))failureBlock {
 
     PFQuery *query = [PFQuery queryWithClassName:@"Project"];
