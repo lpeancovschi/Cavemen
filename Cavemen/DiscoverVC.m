@@ -57,6 +57,8 @@
 
 - (void)cancel
 {
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    
     [self dismissViewControllerAnimated:YES completion:^{
         [self stopBeaconMonitoring];
     }];
