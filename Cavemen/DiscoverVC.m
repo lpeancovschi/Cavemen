@@ -218,8 +218,6 @@
         
         [[GodClient sharedInstance] bookTableWithToken:code successBlock:^{
             
-            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-       
             [self dismissViewControllerAnimated:YES completion:^{
                 
                 UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cavemen"
@@ -230,6 +228,8 @@
                 
                 [alertView show];
             }];
+
+            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
             
         } failureBlock:^(PersonModel *tableOwnerPerson) {
             
