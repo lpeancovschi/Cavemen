@@ -239,11 +239,12 @@
                     [object saveInBackground];
                     
                     [self changeTableStatus:tToken status:TABLE_EMPTY];
-                    
-                    successBlock();
                     break;
                 }
             }
+            
+            successBlock();
+            
         } else {
             // Log details of the failure
             failureBlock();
