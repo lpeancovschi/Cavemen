@@ -133,7 +133,7 @@
         
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cavemen"
                                                             message:@"You have successfully freed your current table"
-                                                           delegate:self
+                                                           delegate:nil
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil, nil];
         

@@ -211,9 +211,16 @@
         
         [[GodClient sharedInstance] bookTableWithToken:code successBlock:^{
             
-            UserDetailsViewControlelr *userDetails = [[UserDetailsViewControlelr alloc] initWithPersonModel:[CurrentPerson sharedInstance]];
-            userDetails.personQuickLook = YES;
-            [self presentViewController:[[UINavigationController alloc] initWithRootViewController:userDetails] animated:YES completion:nil];
+            [self dismissViewControllerAnimated:YES completion:^{
+                
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cavemen"
+                                                                    message:@"You have successfully booked a new table"
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil, nil];
+                
+                [alertView show];
+            }];
             
         } failureBlock:^(PersonModel *tableOwnerPerson) {
             
