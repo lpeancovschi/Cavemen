@@ -90,6 +90,7 @@
                 if ([firstName isEqualToString:login]) {
                     
                     PersonModel *personModel = [[PersonModel alloc] init];
+                    personModel.login = [object objectForKey:@"login"];
                     personModel.firstName = [object objectForKey:@"fName"];
                     personModel.lastName = [object objectForKey:@"lName"];
                     personModel.jobTitle = [object objectForKey:@"jobTitle"];
@@ -143,6 +144,7 @@
                     personModel.photoURI  = [object objectForKey:@"photoUri"];
                     personModel.projects  = [object objectForKey:@"projects"];
                     personModel.tableToken = [object objectForKey:@"tableToken"];
+                    personModel.login     = [object objectForKey:@"login"];
                     
                     isTableFree = NO;
                     
@@ -150,9 +152,9 @@
                     break;
                 }
                 
-                NSString *personName = [object objectForKey:@"fName"];
+                NSString *personLogin = [object objectForKey:@"login"];
                 
-                if ([personName isEqualToString:currentPerson.firstName]) {
+                if ([personLogin isEqualToString:currentPerson.login]) {
                 
                     currentPersonPFObject = object;
                 }
@@ -265,9 +267,9 @@
             
             for (PFObject *object in objects) {
                 
-                NSString *name = [object objectForKey:@"fName"];
+                NSString *login = [object objectForKey:@"login"];
                 
-                if ([name isEqualToString:currentPerson.firstName]) {
+                if ([login isEqualToString:currentPerson.login]) {
                     
                     NSString *tableToken = [object objectForKey:@"tableToken"];
                     

@@ -10,6 +10,7 @@
 
 @interface PersonModel : NSObject
 
+@property (nonatomic, strong) NSString *login;
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *jobTitle;
