@@ -20,7 +20,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        self.title = @"Info";
+        self.title = @"Scan Beacon Tag";
     }
     return self;
 }

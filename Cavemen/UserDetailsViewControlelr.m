@@ -13,6 +13,7 @@
 #import "CurrentPerson.h"
 #import <QuartzCore/QuartzCore.h>
 #import "GodClient.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 #import <UIViewController+MMDrawerController.h>
 
 @interface UserDetailsViewControlelr ()
@@ -129,11 +130,18 @@
 
 - (IBAction)didPressFreeCurrentTable:(id)sender
 {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    
     [[GodClient sharedInstance] unsubscribeFromCurrentWithSuccessBlock:^{
+        
+        [hud hide:YES];
+        
+        self.tableTokenLabel.text = @"Table is not assigned";
         
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cavemen"
                                                             message:@"You have successfully freed your current table"
-                                                           delegate:self
+                                                           delegate:nil
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil, nil];
         
@@ -141,7 +149,7 @@
         
     } failureBlock:^{
         
-        
+        [hud hide:YES];
     }];
 }
 

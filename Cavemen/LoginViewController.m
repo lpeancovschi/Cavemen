@@ -46,6 +46,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    self.passwordTextField.text = @"";
+    
     // register for keyboard notifications
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow)
@@ -141,7 +143,7 @@
 {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cavemen"
                                                     message:@"Invalid username or password"
-                                                   delegate:self
+                                                   delegate:nil
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil, nil];
     
