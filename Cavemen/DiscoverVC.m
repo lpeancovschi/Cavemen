@@ -190,6 +190,9 @@
     if (textField == self.tokenTextField) {
         [self didScanCode:textField.text];
         [textField resignFirstResponder];
+        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"Loading...";
     }
     
     return YES;
