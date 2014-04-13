@@ -30,6 +30,39 @@
     return sharedInstance;
 }
 
+- (void)sendPushDataWithTableId:(NSString *)tableId tableStatus:(NSNumber *)newStatus {
+
+    __block NSString *newTableId = [tableId copy];
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Table"];
+    [query whereKey:@"token" equalTo:newTableId];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            
+            PFObject *object = objects.firstObject;
+            
+            PFObject *floor = [object objectForKey:@"floor"];
+            
+            [floor fetchIfNeeded];
+            NSString *number = [floor objectId];
+            
+            PFPush *push = [[PFPush alloc] init];
+            [push setChannels:[NSArray arrayWithObjects:@"Cavemen", nil]];
+            [push setData:@{@"floorId":number,
+                            @"tableId":newTableId,
+                            @"newTableStatus":[newStatus stringValue],
+                            @"personId":[CurrentPerson sharedInstance].login
+                            }];
+            [push sendPushInBackground];
+            
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+}
+
 - (void)getTableWithToken:(NSString *)tableToken successBlock:(void (^)(TableModel *tableModel))successBlock failureBlock:(void (^)(NSString *errroMsg))failureBlock {
     
     PFQuery *query = [PFQuery queryWithClassName:@"Table"];
@@ -173,6 +206,8 @@
                         
                         currentPerson.tableToken = tableToken;
                         
+                        [self sendPushDataWithTableId:tableToken tableStatus:TABLE_BOOKED];
+                        
                         successBlock();
                     } failureBlock:^(){
                         ;
@@ -185,6 +220,8 @@
                     [currentPersonPFObject saveInBackground];
                     
                     currentPerson.tableToken = tableToken;
+                    
+                    [self sendPushDataWithTableId:tableToken tableStatus:TABLE_BOOKED];
                     
                     successBlock();
                 }
@@ -230,6 +267,10 @@
             
             CurrentPerson *currentPerson = [CurrentPerson sharedInstance];
             
+            if (currentPerson.tableToken.length > 0) {
+                [self sendPushDataWithTableId:currentPerson.tableToken tableStatus:TABLE_EMPTY];
+            }
+            
             for (PFObject *object in objects) {
                 
                 NSString *tToken = [object objectForKey:@"tableToken"];
@@ -241,6 +282,7 @@
                     [object saveInBackground];
                     
                     [self changeTableStatus:tToken status:TABLE_EMPTY];
+                    
                     break;
                 }
             }

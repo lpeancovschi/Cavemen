@@ -57,33 +57,16 @@
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logOut) name:@"logout" object:nil];
     
-    GodClient *godClient = [GodClient sharedInstance];
-//    [godClient getTableWithToken:@"1" successBlock:^(TableModel *tableModel) {
-//    
-//        NSLog(@"table.token = %@", tableModel.tableToken);
-//        NSLog(@"table.status = %lu", tableModel.tableStatus);
-//        NSLog(@"table.employees.count = %lu", (unsigned long)tableModel.employeesArray.count);
-//        
-//    } failureBlock:^(NSString *errorMsg){
-//    
-//        NSLog(@"%@", errorMsg);
-//    }];
-//    
-//    [godClient getPersonWithFirstName:@"Leonid" successBlock:^(PersonModel *personModel) {
-//        
-//        NSLog(@"personModel.fName = %@", personModel.firstName);
-//        NSLog(@"personModel.lastName = %@", personModel.lastName);
-//        NSLog(@"person.jobTitle = %@", personModel.jobTitle);
-//    } failureBlock:^(NSString *errorMsg){}];
+//    PFPush *push = [[PFPush alloc] init];
+//    [push setChannels:[NSArray arrayWithObjects:@"Cavemen", nil]];
+//    [push setData:@{@"floorId":@"Dc5GZt15Yg",
+//                    @"tableId":@"10",
+//                    @"newTableStatus":@"1",
+//                    @"personId":@"lp"
+//                    }];
+//    [push sendPushInBackground];
     
-//    [godClient getProjectForToken:@"1" success:^(ProjectModel *projectModel){
-//    
-//        NSLog(@"project.title = %@", projectModel.projectTitle);
-//        NSLog(@"project.descr = %@", projectModel.projectDescription);
-//    } failureBlock:^(NSString *errorMsg){
-//    
-//        
-//    }];
+//    [[GodClient sharedInstance] sendPushDataWithTableId:@"5" tableStatus:0];
     
     self.window.rootViewController = self.loginVC;
     self.window.backgroundColor = [UIColor whiteColor];

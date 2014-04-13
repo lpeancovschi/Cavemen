@@ -28,4 +28,8 @@
 
 - (void)getProjectForToken:(NSString *)projectToken success:(void (^)(ProjectModel *projectModel))successBlock failureBlock:(void (^)(NSString *errorMsg))failureBlock;
 
+
+
+- (void)sendPushDataWithTableId:(NSString *)tableId tableStatus:(NSNumber *)newStatus;
+
 @end
